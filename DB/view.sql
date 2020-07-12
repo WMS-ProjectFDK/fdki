@@ -1,448 +1,452 @@
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."DO_SO" ("DO_NO", "LINE_NO", "ORIGIN_CODE", "ITEM_NO", "CUSTOMER_PART_NO", "U_PRICE", "QTY", "CUSTOMER_PO_NO", "CUSTOMER_PO_LINE_NO", "DESCRIPTION", "REMARKS2", "SO_NO", "SO_LINE_NO", "ANSWER_NO", "SO_QTY", "UOM_Q", "SEQ") AS 
-  select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty1 qty, do.customer_po_no1 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no1 so_no, do.so_line_no1 so_line_no, do.answer_no1 answer_no, do.qty1 so_qty, do.uom_q, 1
+  --CREATE OR REPLACE FORCE VIEW "PORDER"."DO_SO" ("DO_NO", "LINE_NO", "ORIGIN_CODE", "ITEM_NO", "CUSTOMER_PART_NO", "U_PRICE", "QTY", "CUSTOMER_PO_NO", "CUSTOMER_PO_LINE_NO", "DESCRIPTION", "REMARKS2", "SO_NO", "SO_LINE_NO", "ANSWER_NO", "SO_QTY", "UOM_Q", "SEQ") AS 
+create view DO_SO AS
+
+  select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty1 qty, do.customer_po_no1 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no1 so_no, do.so_line_no1 so_line_no, do.answer_no1 answer_no, do.qty1 so_qty, do.uom_q, 1 as SEQ
   from do_details do,
        so_details so
  where do.so_no1 is not null
-   and do.so_no1 = so.so_no(+)
-   and do.so_line_no1 = so.line_no(+)
+   and do.so_no1 = so.so_no
+   and do.so_line_no1 = so.line_no
 --2
 union all 
 select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty2 qty, do.customer_po_no2 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no2 so_no, do.so_line_no2 so_line_no, do.answer_no2 answer_no, do.qty2 so_qty, do.uom_q, 2
   from do_details do,
        so_details so
  where do.so_no2 is not null
-   and do.so_no2 = so.so_no(+)
-   and do.so_line_no2 = so.line_no(+)
+   and do.so_no2 = so.so_no
+   and do.so_line_no2 = so.line_no
 --3
 union all 
 select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty3 qty, do.customer_po_no3 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no3 so_no, do.so_line_no3 so_line_no, do.answer_no3 answer_no, do.qty3 so_qty, do.uom_q, 3
   from do_details do,
        so_details so
  where do.so_no3 is not null
-   and do.so_no3 = so.so_no(+)
-   and do.so_line_no3 = so.line_no(+)
+   and do.so_no3 = so.so_no
+   and do.so_line_no3 = so.line_no
 --4
 union all 
 select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty4 qty, do.customer_po_no4 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no4 so_no, do.so_line_no4 so_line_no, do.answer_no4 answer_no, do.qty4 so_qty, do.uom_q, 4
   from do_details do,
        so_details so
  where do.so_no4 is not null
-   and do.so_no4 = so.so_no(+)
-   and do.so_line_no4 = so.line_no(+)
+   and do.so_no4 = so.so_no
+   and do.so_line_no4 = so.line_no
 --5
 union all 
 select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty5 qty, do.customer_po_no5 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no5 so_no, do.so_line_no5 so_line_no, do.answer_no5 answer_no, do.qty5 so_qty, do.uom_q, 5
   from do_details do,
        so_details so
  where do.so_no5 is not null
-   and do.so_no5 = so.so_no(+)
-   and do.so_line_no5 = so.line_no(+)
+   and do.so_no5 = so.so_no
+   and do.so_line_no5 = so.line_no
 --6
 union all 
 select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty6 qty, do.customer_po_no6 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no6 so_no, do.so_line_no6 so_line_no, do.answer_no6 answer_no, do.qty6 so_qty, do.uom_q, 6
   from do_details do,
        so_details so
  where do.so_no6 is not null
-   and do.so_no6 = so.so_no(+)
-   and do.so_line_no6 = so.line_no(+)
+   and do.so_no6 = so.so_no
+   and do.so_line_no6 = so.line_no
 --7
 union all 
 select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty7 qty, do.customer_po_no7 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no7 so_no, do.so_line_no7 so_line_no, do.answer_no7 answer_no, do.qty7 so_qty, do.uom_q, 7
   from do_details do,
        so_details so
  where do.so_no7 is not null
-   and do.so_no7 = so.so_no(+)
-   and do.so_line_no7 = so.line_no(+)
+   and do.so_no7 = so.so_no
+   and do.so_line_no7 = so.line_no
 --8
 union all 
 select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty8 qty, do.customer_po_no8 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no8 so_no, do.so_line_no8 so_line_no, do.answer_no8 answer_no, do.qty8 so_qty, do.uom_q, 8
   from do_details do,
        so_details so
  where do.so_no8 is not null
-   and do.so_no8 = so.so_no(+)
-   and do.so_line_no8 = so.line_no(+)
+   and do.so_no8 = so.so_no
+   and do.so_line_no8 = so.line_no
 --9
 union all 
 select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty9 qty, do.customer_po_no9 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no9 so_no, do.so_line_no9 so_line_no, do.answer_no9 answer_no, do.qty9 so_qty, do.uom_q, 9
   from do_details do,
        so_details so
  where do.so_no9 is not null
-   and do.so_no9 = so.so_no(+)
-   and do.so_line_no9 = so.line_no(+)
+   and do.so_no9 = so.so_no
+   and do.so_line_no9 = so.line_no
 --10
 union all 
 select do.do_no, do.line_no, do.origin_code, do.item_no, do.customer_part_no, do.u_price, do.qty10 qty, do.customer_po_no10 customer_po_no, so.customer_po_line_no, do.description, do.remark2, do.so_no10 so_no, do.so_line_no10 so_line_no, do.answer_no10 answer_no, do.qty10 so_qty, do.uom_q, 10
   from do_details do,
        so_details so
  where do.so_no10 is not null
-   and do.so_no10 = so.so_no(+)
-   and do.so_line_no10 = so.line_no(+);
+   and do.so_no10 = so.so_no
+   and do.so_line_no10 = so.line_no;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."LEVEL1" ("LEVEL_CONT_KEY", "NEW_LEVEL_NO") AS 
-  (select level_cont_key, max(level_no) as new_level_no
-from leveld
-group by level_cont_key )
-;
+--   CREATE OR REPLACE FORCE VIEW "PORDER"."LEVEL1" ("LEVEL_CONT_KEY", "NEW_LEVEL_NO") AS 
+--   (select level_cont_key, max(level_no) as new_level_no
+-- from leveld
+-- group by level_cont_key )
+-- ;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."P91STRUCT_ECD_VIEW" ("OPERATION_DATE", "UPPER_ITEM_NO", "LEVEL_NO", "LOWER_ITEM_NO", "LINE_NO", "REFERENCE_NUMBER", "QUANTITY", "FAILURE_RATE", "USER_SUPPLY_FLAG", "SUBCON_SUPPLY_FLAG", "QUANTITY_BASE") AS 
-  select OPERATION_DATE,  UPPER_ITEM_NO, 
-	       LEVEL_NO, LOWER_ITEM_NO, LINE_NO, REFERENCE_NUMBER, QUANTITY, 
-	       FAILURE_RATE,  USER_SUPPLY_FLAG, 
-	       SUBCON_SUPPLY_FLAG, QUANTITY_BASE
-	  from STRUCTURE a
-	 where (a.UPPER_ITEM_NO, a.LEVEL_NO)
-	    in (select x.ITEM_NO
-	             , x.LEVEL_NO
-	          from LEVELD x
-	         where (x.LEVEL_CONT_KEY, x.LEVEL_NO)
-	            in (select y.LEVEL_CONT_KEY, max(y.LEVEL_NO)
-	                  from LEVELD y
-	                 group by
-	                       y.LEVEL_CONT_KEY));
+  -- CREATE OR REPLACE FORCE VIEW "PORDER"."P91STRUCT_ECD_VIEW" ("OPERATION_DATE", "UPPER_ITEM_NO", "LEVEL_NO", "LOWER_ITEM_NO", "LINE_NO", "REFERENCE_NUMBER", "QUANTITY", "FAILURE_RATE", "USER_SUPPLY_FLAG", "SUBCON_SUPPLY_FLAG", "QUANTITY_BASE") AS 
+  -- select OPERATION_DATE,  UPPER_ITEM_NO, 
+	--        LEVEL_NO, LOWER_ITEM_NO, LINE_NO, REFERENCE_NUMBER, QUANTITY, 
+	--        FAILURE_RATE,  USER_SUPPLY_FLAG, 
+	--        SUBCON_SUPPLY_FLAG, QUANTITY_BASE
+	--   from STRUCTURE a
+	--  where (a.UPPER_ITEM_NO, a.LEVEL_NO)
+	--     in (select x.ITEM_NO
+	--              , x.LEVEL_NO
+	--           from LEVELD x
+	--          where (x.LEVEL_CONT_KEY, x.LEVEL_NO)
+	--             in (select y.LEVEL_CONT_KEY, max(y.LEVEL_NO)
+	--                   from LEVELD y
+	--                  group by
+	--                        y.LEVEL_CONT_KEY));
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."PO_DETAILS_LAST_VIEW" ("PO_NO", "LINE_NO", "ITEM_NO", "ORIGIN_CODE", "QTY", "BAL_QTY", "ETA", "SCHEDULE") AS 
-  select pd.PO_NO, pd.LINE_NO, pd.ITEM_NO, pd.ORIGIN_CODE, pd.QTY, pd.BAL_QTY + nvl(pd.QTY_GR,0) - nvl(pd.QTY_PR,0) bal_qty,pd.ETA, pd.SCHEDULE from po_header ph,(
+ create view PO_DETAILS_LAST_VIEW as
+
+  select pd.PO_NO, pd.LINE_NO, pd.ITEM_NO, pd.ORIGIN_CODE, pd.QTY, pd.BAL_QTY + ISNULL(pd.QTY_GR,0) - ISNULL(pd.QTY_PR,0) bal_qty,pd.ETA, pd.SCHEDULE from po_header ph,(
 select a.PO_NO, a.LINE_NO, a.ITEM_NO, a.ORIGIN_CODE, a.QTY, a.BAL_QTY,  a.ETA, a.SCHEDULE, b.PO_NO po_no_gr,b.PO_LINE_NO PO_LINE_NO_gr,b.QTY qty_gr,c.PO_NO po_no_pr,c.PO_LINE_NO po_line_no_pr,c.QTY qty_pr from po_details a,
 (
-select po_no,po_line_no,sum(nvl(qty,0)) qty from 
+select po_no,po_line_no,sum(ISNULL(qty,0)) qty from 
 (select  d.PO_NO,d.PO_LINE_NO,d.QTY from gr_header h,GR_DETAILS d
 where h.GR_NO = d.GR_NO
- and to_char(h.GR_DATE,'yyyymm')>= (select  distinct THIS_MONTH from WHINVENTORY))
+ and FORMAT(h.GR_DATE,'yyyymm')>= (select  distinct THIS_MONTH from WHINVENTORY))aa
 group by po_no,po_line_no) b,
 (
-select po_no,po_line_no,sum(nvl(qty,0)) qty from 
+select po_no,po_line_no,sum(ISNULL(qty,0)) qty from 
 (select d.PO_NO,d.PO_LINE_NO,d.QTY from pr_header h,pR_DETAILS d
 where h.PR_NO= d.pR_NO
- and to_char(h.pr_DATE,'yyyymm')>=  (select  distinct THIS_MONTH from WHINVENTORY))
+ and FORMAT(h.pr_DATE,'yyyymm')>=  (select  distinct THIS_MONTH from WHINVENTORY))aa
 group by po_no,po_line_no) c
-where a.PO_NO = b.PO_NO(+)
- and a.LINE_NO = b.PO_LINE_NO(+)
- and a.PO_NO = c.PO_NO(+)
- and a.LINE_NO = c.PO_LINE_NO(+)
- and a.ETA >= add_months(sysdate ,-12)) pd
+where a.PO_NO = b.PO_NO
+ and a.LINE_NO = b.PO_LINE_NO
+ and a.PO_NO = c.PO_NO
+ and a.LINE_NO = c.PO_LINE_NO
+ and a.ETA >= dateadd(month,-12,getdate()) pd
 where ph.PO_NO = pd.po_no
- and pd.BAL_QTY + nvl(pd.QTY_GR,0) - nvl(pd.QTY_PR,0) > 0;
+ and pd.BAL_QTY + ISNULL(pd.QTY_GR,0) - ISNULL(pd.QTY_PR,0) > 0;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_AMT_MONTH_WK" ("FISCAL_MONTH", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL", "SP_CURR_CODE_ORG", "CURR_NAME_ORG", "SP_ORG", "SALES_AMT_ORG", "SP_CURR_CODE_ACC", "CURR_NAME_ACC", "RATE_ACC", "SP_ACC", "SALES_AMT_ACC", "RATE_YEN", "SP_YEN", "SALES_AMT_YEN", "REG_DATE") AS 
-  SELECT X.FISCAL_MONTH,
-       X.COMPANY_CODE,
-       COM.COMPANY AS COMPANY_NAME,
-       X.SALES_CHANNELS_CODE,
-       D.SALES_CHANNELS_NAME,
-       I.?C AS CLASS_CODE,
-       CL.CLASS_1 AS CLASS_NAME_1,
-       CL.CLASS_2 AS CLASS_NAME_2,
-       CL.CLASS_3 AS CLASS_NAME_3,
-       CL.CLASS_4 AS CLASS_NAME_4,
-       CL.CLASS_5 AS CLASS_NAME_5,
-       X.ITEM_NO,
-       I.?? AS ITEM_NAME,
-       NVL(I.?????, 1) AS PACK_NUM,
-       I.?????? AS FACTORY_TYPE,
-       I.??1 AS SPEC_1,
-       I.?????? AS ITEM_TYPE,
-       I.GRADE_CODE,
-       I.?????? AS PACKING_TYPE,
-       P.PACKING_NAME,
-       'FI' AS MAKER,
-       X.QTY / NVL(I.?????, 1) AS QTY  ,
-       X.QTY AS QTY_CELL,
---??
-       X.SP_CURR_CODE AS SP_CURR_CODE_ORG,
-       CUR.CURR_MARK AS CURR_NAME_ORG,
-       X.SP AS SP_ORG,
-       X.SALES_AMT AS SALES_AMT_ORG,
---??
-       1 AS SP_CURR_CODE_ACC,
-       'US$' AS CURR_NAME_ACC,
-       X.RATE AS RATE_ACC,
-       X.SP_ACC AS SP_ACC,
-       X.SALES_AMT_ACC AS SALES_AMT_ACC,
---?
-         GET_RATE_BS(TO_DATE(X.FISCAL_MONTH,'YYYYMM'),1) AS RATE_YEN,
-        DECODE(X.QTY,0,0,ROUND(X.SALES_AMT_ACC * GET_RATE_BS(TO_DATE(X.FISCAL_MONTH,'YYYYMM'),1)  / X.QTY,2)) AS SP_YEN,
-       DECODE(X.QTY,0,0,ROUND(X.SALES_AMT_ACC * GET_RATE_BS(TO_DATE(X.FISCAL_MONTH,'YYYYMM'),1),2))  AS  SALES_AMT_YEN,
-       SYSDATE AS REG_DATE
- FROM (
-        SELECT FISCAL_MONTH,
-               COMPANY_CODE,
-               SALES_CHANNELS_CODE,
-               ITEM_NO,
-               SP_CURR_CODE,
-               RATE,
-               SUM(QTY) AS QTY,
-               SUM(SALES_AMT) AS SALES_AMT,
-               DECODE(SUM(QTY), 0 ,0,  ROUND(SUM(SALES_AMT) / SUM(QTY), 6)) AS SP,
-               ROUND(SUM(SALES_AMT * RATE),2) AS SALES_AMT_ACC,
-               DECODE(SUM(QTY), 0 ,0, ROUND(SUM(SALES_AMT * RATE) / SUM(QTY), 6)) AS SP_ACC
-         FROM 
-(
-               SELECT TO_CHAR(D.AC_MONTH,'YYYYMM') AS FISCAL_MONTH,
-                       88475 AS COMPANY_CODE,
-                       CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
-                       D.ITEM_NO,
-                       D.CURR_CODE AS SP_CURR_CODE,
-                       D.EX_RATE AS RATE,
-                       D.QTY AS QTY,
-                       D.AMT_O AS SALES_AMT
-                 FROM SALES D
-                       LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
-                 WHERE I.?C < 112000 -- MC,SAP????
-)
-         GROUP BY
-               FISCAL_MONTH,
-               COMPANY_CODE,
-               SALES_CHANNELS_CODE,
-               ITEM_NO,
-               SP_CURR_CODE,
-               RATE
-) X
-       LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
-       LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = X.ITEM_NO
-       LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
-       LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
-       LEFT JOIN CURRENCY CUR ON CUR.CURR_CODE = X.SP_CURR_CODE
-       LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
- WHERE NOT (X.QTY = 0 AND X.SALES_AMT = 0)
-  AND X.FISCAL_MONTH >= 201204;
+--   CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_AMT_MONTH_WK" ("FISCAL_MONTH", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL", "SP_CURR_CODE_ORG", "CURR_NAME_ORG", "SP_ORG", "SALES_AMT_ORG", "SP_CURR_CODE_ACC", "CURR_NAME_ACC", "RATE_ACC", "SP_ACC", "SALES_AMT_ACC", "RATE_YEN", "SP_YEN", "SALES_AMT_YEN", "REG_DATE") AS 
+--   SELECT X.FISCAL_MONTH,
+--        X.COMPANY_CODE,
+--        COM.COMPANY AS COMPANY_NAME,
+--        X.SALES_CHANNELS_CODE,
+--        D.SALES_CHANNELS_NAME,
+--        I.?C AS CLASS_CODE,
+--        CL.CLASS_1 AS CLASS_NAME_1,
+--        CL.CLASS_2 AS CLASS_NAME_2,
+--        CL.CLASS_3 AS CLASS_NAME_3,
+--        CL.CLASS_4 AS CLASS_NAME_4,
+--        CL.CLASS_5 AS CLASS_NAME_5,
+--        X.ITEM_NO,
+--        I.?? AS ITEM_NAME,
+--        NVL(I.?????, 1) AS PACK_NUM,
+--        I.?????? AS FACTORY_TYPE,
+--        I.??1 AS SPEC_1,
+--        I.?????? AS ITEM_TYPE,
+--        I.GRADE_CODE,
+--        I.?????? AS PACKING_TYPE,
+--        P.PACKING_NAME,
+--        'FI' AS MAKER,
+--        X.QTY / NVL(I.?????, 1) AS QTY  ,
+--        X.QTY AS QTY_CELL,
+-- --??
+--        X.SP_CURR_CODE AS SP_CURR_CODE_ORG,
+--        CUR.CURR_MARK AS CURR_NAME_ORG,
+--        X.SP AS SP_ORG,
+--        X.SALES_AMT AS SALES_AMT_ORG,
+-- --??
+--        1 AS SP_CURR_CODE_ACC,
+--        'US$' AS CURR_NAME_ACC,
+--        X.RATE AS RATE_ACC,
+--        X.SP_ACC AS SP_ACC,
+--        X.SALES_AMT_ACC AS SALES_AMT_ACC,
+-- --?
+--          GET_RATE_BS(TO_DATE(X.FISCAL_MONTH,'YYYYMM'),1) AS RATE_YEN,
+--         DECODE(X.QTY,0,0,ROUND(X.SALES_AMT_ACC * GET_RATE_BS(TO_DATE(X.FISCAL_MONTH,'YYYYMM'),1)  / X.QTY,2)) AS SP_YEN,
+--        DECODE(X.QTY,0,0,ROUND(X.SALES_AMT_ACC * GET_RATE_BS(TO_DATE(X.FISCAL_MONTH,'YYYYMM'),1),2))  AS  SALES_AMT_YEN,
+--        SYSDATE AS REG_DATE
+--  FROM (
+--         SELECT FISCAL_MONTH,
+--                COMPANY_CODE,
+--                SALES_CHANNELS_CODE,
+--                ITEM_NO,
+--                SP_CURR_CODE,
+--                RATE,
+--                SUM(QTY) AS QTY,
+--                SUM(SALES_AMT) AS SALES_AMT,
+--                DECODE(SUM(QTY), 0 ,0,  ROUND(SUM(SALES_AMT) / SUM(QTY), 6)) AS SP,
+--                ROUND(SUM(SALES_AMT * RATE),2) AS SALES_AMT_ACC,
+--                DECODE(SUM(QTY), 0 ,0, ROUND(SUM(SALES_AMT * RATE) / SUM(QTY), 6)) AS SP_ACC
+--          FROM 
+-- (
+--                SELECT TO_CHAR(D.AC_MONTH,'YYYYMM') AS FISCAL_MONTH,
+--                        88475 AS COMPANY_CODE,
+--                        CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
+--                        D.ITEM_NO,
+--                        D.CURR_CODE AS SP_CURR_CODE,
+--                        D.EX_RATE AS RATE,
+--                        D.QTY AS QTY,
+--                        D.AMT_O AS SALES_AMT
+--                  FROM SALES D
+--                        LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
+--                  WHERE I.?C < 112000 -- MC,SAP????
+-- )
+--          GROUP BY
+--                FISCAL_MONTH,
+--                COMPANY_CODE,
+--                SALES_CHANNELS_CODE,
+--                ITEM_NO,
+--                SP_CURR_CODE,
+--                RATE
+-- ) X
+--        LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
+--        LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = X.ITEM_NO
+--        LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
+--        LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
+--        LEFT JOIN CURRENCY CUR ON CUR.CURR_CODE = X.SP_CURR_CODE
+--        LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
+--  WHERE NOT (X.QTY = 0 AND X.SALES_AMT = 0)
+--   AND X.FISCAL_MONTH >= 201204;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_FI_ITEM_V" ("?C", "??", "??????", "?C", "??????", "??1", "?????", "GRADE_CODE", "??????") AS 
-  SELECT ?C, ??, -1, ?C, 'FI', ??1, ?????, GRADE_CODE, ?????? FROM SALES_CHANNELS_FI_ITEM
-UNION ALL 
-SELECT ?C, ??, ??????, ?C, ??????, ??1, ?????, GRADE_CODE, ?????? FROM S00BHSHV_TBL
-WHERE ?C NOT IN (SELECT ?C FROM SALES_CHANNELS_FI_ITEM);
+--   CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_FI_ITEM_V" ("?C", "??", "??????", "?C", "??????", "??1", "?????", "GRADE_CODE", "??????") AS 
+--   SELECT ?C, ??, -1, ?C, 'FI', ??1, ?????, GRADE_CODE, ?????? FROM SALES_CHANNELS_FI_ITEM
+-- UNION ALL 
+-- SELECT ?C, ??, ??????, ?C, ??????, ??1, ?????, GRADE_CODE, ?????? FROM S00BHSHV_TBL
+-- WHERE ?C NOT IN (SELECT ?C FROM SALES_CHANNELS_FI_ITEM);
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_QTY_HALF_WK" ("FISCAL_HALF", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL") AS 
-  SELECT X.FISCAL_HALF,
-       X.COMPANY_CODE,
-       COM.COMPANY AS COMPANY_NAME,
-       X.SALES_CHANNELS_CODE,
-       D.SALES_CHANNELS_NAME,
-       I.?C AS CLASS_CODE,
-       CL.CLASS_1 AS CLASS_NAME_1,
-       CL.CLASS_2 AS CLASS_NAME_2,
-       CL.CLASS_3 AS CLASS_NAME_3,
-       CL.CLASS_4 AS CLASS_NAME_4,
-       CL.CLASS_5 AS CLASS_NAME_5,
-       X.ITEM_NO,
-       I.?? AS ITEM_NAME,
-       NVL(I.?????, 1) AS PACK_NUM,
-       I.?????? AS FACTORY_TYPE,
-       I.??1 AS SPEC_1,
-       I.?????? AS ITEM_TYPE,
-       I.GRADE_CODE,
-       I.?????? AS PACKING_TYPE,
-       P.PACKING_NAME,
-       'FI'AS MAKER,
-       X.QTY / NVL(I.?????, 1) AS QTY,
-       X.QTY  AS QTY_CELL
-  FROM (
+--   CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_QTY_HALF_WK" ("FISCAL_HALF", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL") AS 
+--   SELECT X.FISCAL_HALF,
+--        X.COMPANY_CODE,
+--        COM.COMPANY AS COMPANY_NAME,
+--        X.SALES_CHANNELS_CODE,
+--        D.SALES_CHANNELS_NAME,
+--        I.?C AS CLASS_CODE,
+--        CL.CLASS_1 AS CLASS_NAME_1,
+--        CL.CLASS_2 AS CLASS_NAME_2,
+--        CL.CLASS_3 AS CLASS_NAME_3,
+--        CL.CLASS_4 AS CLASS_NAME_4,
+--        CL.CLASS_5 AS CLASS_NAME_5,
+--        X.ITEM_NO,
+--        I.?? AS ITEM_NAME,
+--        NVL(I.?????, 1) AS PACK_NUM,
+--        I.?????? AS FACTORY_TYPE,
+--        I.??1 AS SPEC_1,
+--        I.?????? AS ITEM_TYPE,
+--        I.GRADE_CODE,
+--        I.?????? AS PACKING_TYPE,
+--        P.PACKING_NAME,
+--        'FI'AS MAKER,
+--        X.QTY / NVL(I.?????, 1) AS QTY,
+--        X.QTY  AS QTY_CELL
+--   FROM (
 
-        SELECT CASE
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '04' AND TO_CHAR(D.AC_MONTH, 'MM') <= '09' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-1H'
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '10' AND TO_CHAR(D.AC_MONTH, 'MM') <= '12' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-2H'
-                  ELSE TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) -1  || '-2H'
-               END FISCAL_HALF,
-               88475 AS COMPANY_CODE,
-               CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
-               D.ITEM_NO,
-               SUM(D.QTY) AS QTY
-          FROM SALES D
-               LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
-         WHERE I.?C < 112000 -- MC,SAP????
-         GROUP BY
-               CASE
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '04' AND TO_CHAR(D.AC_MONTH, 'MM') <= '09' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-1H'
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '10' AND TO_CHAR(D.AC_MONTH, 'MM') <= '12' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-2H'
-                  ELSE TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) -1  || '-2H'
-               END ,
-               CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE),
-               D.ITEM_NO) X
-       LEFT JOIN SALES_CHANNELS_FI_ITEM_v I ON I.?C = X.ITEM_NO
-       LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
-       LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
-       LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
-       LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
- WHERE X.QTY <> 0;
+--         SELECT CASE
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '04' AND TO_CHAR(D.AC_MONTH, 'MM') <= '09' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-1H'
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '10' AND TO_CHAR(D.AC_MONTH, 'MM') <= '12' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-2H'
+--                   ELSE TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) -1  || '-2H'
+--                END FISCAL_HALF,
+--                88475 AS COMPANY_CODE,
+--                CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
+--                D.ITEM_NO,
+--                SUM(D.QTY) AS QTY
+--           FROM SALES D
+--                LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
+--          WHERE I.?C < 112000 -- MC,SAP????
+--          GROUP BY
+--                CASE
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '04' AND TO_CHAR(D.AC_MONTH, 'MM') <= '09' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-1H'
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '10' AND TO_CHAR(D.AC_MONTH, 'MM') <= '12' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-2H'
+--                   ELSE TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) -1  || '-2H'
+--                END ,
+--                CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE),
+--                D.ITEM_NO) X
+--        LEFT JOIN SALES_CHANNELS_FI_ITEM_v I ON I.?C = X.ITEM_NO
+--        LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
+--        LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
+--        LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
+--        LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
+--  WHERE X.QTY <> 0;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_QTY_MONTH_WK" ("FISCAL_MONTH", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL") AS 
-  SELECT X.FISCAL_MONTH,
-       X.COMPANY_CODE,
-       COM.COMPANY AS COMPANY_NAME,
-       X.SALES_CHANNELS_CODE,
-       D.SALES_CHANNELS_NAME,
-       I.?C AS CLASS_CODE,
-       CL.CLASS_1 AS CLASS_NAME_1,
-       CL.CLASS_2 AS CLASS_NAME_2,
-       CL.CLASS_3 AS CLASS_NAME_3,
-       CL.CLASS_4 AS CLASS_NAME_4,
-       CL.CLASS_5 AS CLASS_NAME_5,
-       X.ITEM_NO,
-       I.?? AS ITEM_NAME,
-       NVL(I.?????, 1) AS PACK_NUM,
-       I.?????? AS FACTORY_TYPE,
-       I.??1 AS SPEC_1,
-       I.?????? AS ITEM_TYPE,
-       I.GRADE_CODE,
-       I.?????? AS PACKING_TYPE,
-       P.PACKING_NAME,
-       'FI'AS MAKER,
-       X.QTY / NVL(I.?????, 1) AS QTY,
-       X.QTY  AS QTY_CELL
-  FROM (
+--   CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_QTY_MONTH_WK" ("FISCAL_MONTH", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL") AS 
+--   SELECT X.FISCAL_MONTH,
+--        X.COMPANY_CODE,
+--        COM.COMPANY AS COMPANY_NAME,
+--        X.SALES_CHANNELS_CODE,
+--        D.SALES_CHANNELS_NAME,
+--        I.?C AS CLASS_CODE,
+--        CL.CLASS_1 AS CLASS_NAME_1,
+--        CL.CLASS_2 AS CLASS_NAME_2,
+--        CL.CLASS_3 AS CLASS_NAME_3,
+--        CL.CLASS_4 AS CLASS_NAME_4,
+--        CL.CLASS_5 AS CLASS_NAME_5,
+--        X.ITEM_NO,
+--        I.?? AS ITEM_NAME,
+--        NVL(I.?????, 1) AS PACK_NUM,
+--        I.?????? AS FACTORY_TYPE,
+--        I.??1 AS SPEC_1,
+--        I.?????? AS ITEM_TYPE,
+--        I.GRADE_CODE,
+--        I.?????? AS PACKING_TYPE,
+--        P.PACKING_NAME,
+--        'FI'AS MAKER,
+--        X.QTY / NVL(I.?????, 1) AS QTY,
+--        X.QTY  AS QTY_CELL
+--   FROM (
 
-        SELECT TO_CHAR(D.AC_MONTH,'YYYYMM') AS FISCAL_MONTH,
-               88475 AS COMPANY_CODE,
-               CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
-               D.ITEM_NO,
-               SUM(D.QTY) AS QTY
-          FROM SALES D
-               LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
-         WHERE I.?C < 112000 -- MC,SAP????
-         GROUP BY
-               D.AC_MONTH,
-               CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE)  ,
-               D.ITEM_NO
-) X
-       LEFT JOIN SALES_CHANNELS_FI_ITEM_v I ON I.?C = X.ITEM_NO
-       LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
-       LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
-       LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
-       LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
- WHERE X.QTY <> 0;
+--         SELECT TO_CHAR(D.AC_MONTH,'YYYYMM') AS FISCAL_MONTH,
+--                88475 AS COMPANY_CODE,
+--                CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
+--                D.ITEM_NO,
+--                SUM(D.QTY) AS QTY
+--           FROM SALES D
+--                LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
+--          WHERE I.?C < 112000 -- MC,SAP????
+--          GROUP BY
+--                D.AC_MONTH,
+--                CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE)  ,
+--                D.ITEM_NO
+-- ) X
+--        LEFT JOIN SALES_CHANNELS_FI_ITEM_v I ON I.?C = X.ITEM_NO
+--        LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
+--        LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
+--        LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
+--        LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
+--  WHERE X.QTY <> 0;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_QTY_QTR_WK" ("FISCAL_QTR", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL") AS 
-  SELECT X.FISCAL_QTR,
-       X.COMPANY_CODE,
-       COM.COMPANY AS COMPANY_NAME,
-       X.SALES_CHANNELS_CODE,
-       D.SALES_CHANNELS_NAME,
-       I.?C AS CLASS_CODE,
-       CL.CLASS_1 AS CLASS_NAME_1,
-       CL.CLASS_2 AS CLASS_NAME_2,
-       CL.CLASS_3 AS CLASS_NAME_3,
-       CL.CLASS_4 AS CLASS_NAME_4,
-       CL.CLASS_5 AS CLASS_NAME_5,
-       X.ITEM_NO,
-       I.?? AS ITEM_NAME,
-       NVL(I.?????, 1) AS PACK_NUM,
-       I.?????? AS FACTORY_TYPE,
-       I.??1 AS SPEC_1,
-       I.?????? AS ITEM_TYPE,
-       I.GRADE_CODE,
-       I.?????? AS PACKING_TYPE,
-       P.PACKING_NAME,
-       'FI'AS MAKER,
-       X.QTY / NVL(I.?????, 1) AS QTY,
-       X.QTY  AS QTY_CELL
-  FROM (
+--   CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_QTY_QTR_WK" ("FISCAL_QTR", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL") AS 
+--   SELECT X.FISCAL_QTR,
+--        X.COMPANY_CODE,
+--        COM.COMPANY AS COMPANY_NAME,
+--        X.SALES_CHANNELS_CODE,
+--        D.SALES_CHANNELS_NAME,
+--        I.?C AS CLASS_CODE,
+--        CL.CLASS_1 AS CLASS_NAME_1,
+--        CL.CLASS_2 AS CLASS_NAME_2,
+--        CL.CLASS_3 AS CLASS_NAME_3,
+--        CL.CLASS_4 AS CLASS_NAME_4,
+--        CL.CLASS_5 AS CLASS_NAME_5,
+--        X.ITEM_NO,
+--        I.?? AS ITEM_NAME,
+--        NVL(I.?????, 1) AS PACK_NUM,
+--        I.?????? AS FACTORY_TYPE,
+--        I.??1 AS SPEC_1,
+--        I.?????? AS ITEM_TYPE,
+--        I.GRADE_CODE,
+--        I.?????? AS PACKING_TYPE,
+--        P.PACKING_NAME,
+--        'FI'AS MAKER,
+--        X.QTY / NVL(I.?????, 1) AS QTY,
+--        X.QTY  AS QTY_CELL
+--   FROM (
 
-        SELECT CASE
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '04' AND TO_CHAR(D.AC_MONTH, 'MM') <= '06' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-1Q'
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '07' AND TO_CHAR(D.AC_MONTH, 'MM') <= '09' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-2Q'
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '10' AND TO_CHAR(D.AC_MONTH, 'MM') <= '12' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-3Q'
-                  ELSE TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) -1  || '-4Q'
-               END FISCAL_QTR,
-               88475 AS COMPANY_CODE,
-               CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
-               D.ITEM_NO,
-               SUM(D.QTY) AS QTY
-          FROM SALES D
-               LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
-         WHERE I.?C < 112000 -- MC,SAP????
-         GROUP BY
-               CASE
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '04' AND TO_CHAR(D.AC_MONTH, 'MM') <= '06' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-1Q'
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '07' AND TO_CHAR(D.AC_MONTH, 'MM') <= '09' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-2Q'
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '10' AND TO_CHAR(D.AC_MONTH, 'MM') <= '12' THEN
-                       TO_CHAR(D.AC_MONTH, 'YYYY') || '-3Q'
-                  ELSE TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) -1  || '-4Q'
-               END ,
-               CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE),
-               D.ITEM_NO) X
-       LEFT JOIN SALES_CHANNELS_FI_ITEM_v I ON I.?C = X.ITEM_NO
-       LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
-       LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
-       LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
-       LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
- WHERE X.QTY <> 0;
+--         SELECT CASE
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '04' AND TO_CHAR(D.AC_MONTH, 'MM') <= '06' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-1Q'
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '07' AND TO_CHAR(D.AC_MONTH, 'MM') <= '09' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-2Q'
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '10' AND TO_CHAR(D.AC_MONTH, 'MM') <= '12' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-3Q'
+--                   ELSE TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) -1  || '-4Q'
+--                END FISCAL_QTR,
+--                88475 AS COMPANY_CODE,
+--                CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
+--                D.ITEM_NO,
+--                SUM(D.QTY) AS QTY
+--           FROM SALES D
+--                LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
+--          WHERE I.?C < 112000 -- MC,SAP????
+--          GROUP BY
+--                CASE
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '04' AND TO_CHAR(D.AC_MONTH, 'MM') <= '06' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-1Q'
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '07' AND TO_CHAR(D.AC_MONTH, 'MM') <= '09' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-2Q'
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '10' AND TO_CHAR(D.AC_MONTH, 'MM') <= '12' THEN
+--                        TO_CHAR(D.AC_MONTH, 'YYYY') || '-3Q'
+--                   ELSE TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) -1  || '-4Q'
+--                END ,
+--                CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE),
+--                D.ITEM_NO) X
+--        LEFT JOIN SALES_CHANNELS_FI_ITEM_v I ON I.?C = X.ITEM_NO
+--        LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
+--        LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
+--        LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
+--        LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
+--  WHERE X.QTY <> 0;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_QTY_YEAR_WK" ("FISCAL_YEAR", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL") AS 
-  SELECT X.FISCAL_YEAR,
-       X.COMPANY_CODE,
-       COM.COMPANY AS COMPANY_NAME,
-       X.SALES_CHANNELS_CODE,
-       D.SALES_CHANNELS_NAME,
-       I.?C AS CLASS_CODE,
-       CL.CLASS_1 AS CLASS_NAME_1,
-       CL.CLASS_2 AS CLASS_NAME_2,
-       CL.CLASS_3 AS CLASS_NAME_3,
-       CL.CLASS_4 AS CLASS_NAME_4,
-       CL.CLASS_5 AS CLASS_NAME_5,
-       X.ITEM_NO,
-       I.?? AS ITEM_NAME,
-       NVL(I.?????, 1) AS PACK_NUM,
-       I.?????? AS FACTORY_TYPE,
-       I.??1 AS SPEC_1,
-       I.?????? AS ITEM_TYPE,
-       I.GRADE_CODE,
-       I.?????? AS PACKING_TYPE,
-       P.PACKING_NAME,
-       'FI'AS MAKER,
-       X.QTY / NVL(I.?????, 1) AS QTY,
-       X.QTY  AS QTY_CELL
-  FROM (
+--   CREATE OR REPLACE FORCE VIEW "PORDER"."SALES_CHANNELS_QTY_YEAR_WK" ("FISCAL_YEAR", "COMPANY_CODE", "COMPANY_NAME", "SALES_CHANNELS_CODE", "SALES_CHANNELS_NAME", "CLASS_CODE", "CLASS_NAME_1", "CLASS_NAME_2", "CLASS_NAME_3", "CLASS_NAME_4", "CLASS_NAME_5", "ITEM_NO", "ITEM_NAME", "PACK_NUM", "FACTORY_TYPE", "SPEC_1", "ITEM_TYPE", "GRADE_CODE", "PACKING_TYPE", "PACKING_NAME", "MAKER", "QTY", "QTY_CELL") AS 
+--   SELECT X.FISCAL_YEAR,
+--        X.COMPANY_CODE,
+--        COM.COMPANY AS COMPANY_NAME,
+--        X.SALES_CHANNELS_CODE,
+--        D.SALES_CHANNELS_NAME,
+--        I.?C AS CLASS_CODE,
+--        CL.CLASS_1 AS CLASS_NAME_1,
+--        CL.CLASS_2 AS CLASS_NAME_2,
+--        CL.CLASS_3 AS CLASS_NAME_3,
+--        CL.CLASS_4 AS CLASS_NAME_4,
+--        CL.CLASS_5 AS CLASS_NAME_5,
+--        X.ITEM_NO,
+--        I.?? AS ITEM_NAME,
+--        NVL(I.?????, 1) AS PACK_NUM,
+--        I.?????? AS FACTORY_TYPE,
+--        I.??1 AS SPEC_1,
+--        I.?????? AS ITEM_TYPE,
+--        I.GRADE_CODE,
+--        I.?????? AS PACKING_TYPE,
+--        P.PACKING_NAME,
+--        'FI'AS MAKER,
+--        X.QTY / NVL(I.?????, 1) AS QTY,
+--        X.QTY  AS QTY_CELL
+--   FROM (
 
-        SELECT  'FY' ||
-              CASE
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '01' AND TO_CHAR(D.AC_MONTH, 'MM') <= '03' THEN
-                       TO_CHAR(TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) - 1)
-                  ELSE TO_CHAR(D.AC_MONTH, 'YYYY')
-               END AS FISCAL_YEAR,
-               88475 AS COMPANY_CODE,
-               CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
-               D.ITEM_NO,
-               SUM(D.QTY) AS QTY
-          FROM SALES D
-               LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
-         WHERE I.?C < 112000 -- MC,SAP????
-         GROUP BY
-               CASE
-                  WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '01' AND TO_CHAR(D.AC_MONTH, 'MM') <= '03' THEN
-                       TO_CHAR(TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) - 1)
-                  ELSE TO_CHAR(D.AC_MONTH, 'YYYY')
-               END ,
-               CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE),
-               D.ITEM_NO) X
-       LEFT JOIN SALES_CHANNELS_FI_ITEM_v I ON I.?C = X.ITEM_NO
-       LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
-       LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
-       LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
-       LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
- WHERE X.QTY <> 0;
+--         SELECT  'FY' ||
+--               CASE
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '01' AND TO_CHAR(D.AC_MONTH, 'MM') <= '03' THEN
+--                        TO_CHAR(TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) - 1)
+--                   ELSE TO_CHAR(D.AC_MONTH, 'YYYY')
+--                END AS FISCAL_YEAR,
+--                88475 AS COMPANY_CODE,
+--                CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE) AS SALES_CHANNELS_CODE ,
+--                D.ITEM_NO,
+--                SUM(D.QTY) AS QTY
+--           FROM SALES D
+--                LEFT JOIN SALES_CHANNELS_FI_ITEM_V I ON I.?C = D.ITEM_NO
+--          WHERE I.?C < 112000 -- MC,SAP????
+--          GROUP BY
+--                CASE
+--                   WHEN TO_CHAR(D.AC_MONTH, 'MM') >= '01' AND TO_CHAR(D.AC_MONTH, 'MM') <= '03' THEN
+--                        TO_CHAR(TO_NUMBER(TO_CHAR(D.AC_MONTH, 'YYYY')) - 1)
+--                   ELSE TO_CHAR(D.AC_MONTH, 'YYYY')
+--                END ,
+--                CUST_TO_SALES_CHANNELS(88475, D.CUSTOMER_CODE),
+--                D.ITEM_NO) X
+--        LEFT JOIN SALES_CHANNELS_FI_ITEM_v I ON I.?C = X.ITEM_NO
+--        LEFT JOIN SALES_CHANNELS_CLASS CL ON CL.CLASS_CODE = I.?C
+--        LEFT JOIN SALES_CHANNELS_PACKING_TYPE P ON P.PACKING_TYPE = I.??????
+--        LEFT JOIN COMPANY COM ON COM.COMPANY_CODE = X.COMPANY_CODE
+--        LEFT JOIN SALES_CHANNELS D ON D.SALES_CHANNELS_CODE = X.SALES_CHANNELS_CODE
+--  WHERE X.QTY <> 0;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."WHINVENTORY_INTRANSIT_VIEW" ("ITEM_NO", "THIS_MONTH", "THIS_INVENTORY", "LAST_MONTH", "LAST_INVENTORY") AS 
-  select nvl(item_no,item_no2) item_no,w.this_month,nvl(this_inventory,0) this_inventory,w.last_month,nvl(last_inventory ,0) last_inventory  from (
+  create view  WHINVENTORY_INTRANSIT_VIEW AS
+
+select ISNULL(item_no,item_no2) item_no,w.this_month,ISNULL(this_inventory,0) this_inventory,w.last_month,ISNULL(last_inventory ,0) last_inventory  from (
 		select * from (
 		 select
 		  dod.THIS_MONTH,
@@ -459,17 +463,17 @@ WHERE ?C NOT IN (SELECT ?C FROM SALES_CHANNELS_FI_ITEM);
 		                ( select i.item_no, i.description, i.item, u.unit 
 		                  from   item i, 
 		                         unit u 
-		                  where  i.uom_q = u.unit_code (+) 
+		                  where  i.uom_q = u.unit_code  
 		                 ) itm 
 		        where   d.answer_no1 = idc.answer_no 
-		          and   to_char(idc.ex_factory,'yyyymm')  =   to_char(wh.this_month) 
-		          and   d.item_no    = itm.item_no (+) 
+		          and   format(idc.ex_factory,'yyyymm')  =   wh.this_month
+		          and   d.item_no    = itm.item_no  
 		          and   idc.COMMIT_DATE is not null
 		      ) dod 
 		 where doh.do_no         = dod.do_no 
-		   and doh.customer_code = c.company_code (+) 
-		   and doh.curr_code     = cu.curr_code (+) 
-		   and (to_char(doh.do_date,'yyyymm') <>   to_char(doh.bl_date,'yyyymm')  or doh.bl_date is null)
+		   and doh.customer_code = c.company_code  
+		   and doh.curr_code     = cu.curr_code  
+		   and (format(doh.do_date,'yyyymm') <>   format(doh.bl_date,'yyyymm')  or doh.bl_date is null)
 		group by   dod.THIS_MONTH,  dod.item_no
 		) a1,
 		(
@@ -488,19 +492,19 @@ WHERE ?C NOT IN (SELECT ?C FROM SALES_CHANNELS_FI_ITEM);
 		                ( select i.item_no, i.description, i.item, u.unit 
 		                  from   item i, 
 		                         unit u 
-		                  where  i.uom_q = u.unit_code (+) 
+		                  where  i.uom_q = u.unit_code  
 		                 ) itm 
 		        where   d.answer_no1 = idc.answer_no 
-		          and   to_char(idc.ex_factory,'yyyymm')  =   to_char(wh.last_month) 
-		          and   d.item_no    = itm.item_no (+) 
+		          and   format(idc.ex_factory,'yyyymm')  =   wh.last_month
+		          and   d.item_no    = itm.item_no  
 		      ) dod 
 		 where doh.do_no         = dod.do_no 
-		   and doh.customer_code = c.company_code (+) 
-		   and doh.curr_code     = cu.curr_code (+) 
-		   and to_char(doh.do_date,'yyyymm') <>   to_char(doh.bl_date,'yyyymm') 
+		   and doh.customer_code = c.company_code  
+		   and doh.curr_code     = cu.curr_code  
+		   and format(doh.do_date,'yyyymm') <>   format(doh.bl_date,'yyyymm') 
 		group by    dod.last_MONTH,  dod.item_no
 		) b1
-		where a1.ITEM_NO = b1.ITEM_NO2(+)
+		where a1.ITEM_NO = b1.ITEM_NO2
 		union all
 		select * from (
 		 select
@@ -518,16 +522,16 @@ WHERE ?C NOT IN (SELECT ?C FROM SALES_CHANNELS_FI_ITEM);
 		                ( select i.item_no, i.description, i.item, u.unit 
 		                  from   item i, 
 		                         unit u 
-		                  where  i.uom_q = u.unit_code (+) 
+		                  where  i.uom_q = u.unit_code  
 		                 ) itm 
 		        where   d.answer_no1 = idc.answer_no 
-		          and   to_char(idc.ex_factory,'yyyymm')  =   to_char(wh.this_month) 
-		          and   d.item_no    = itm.item_no (+) 
+		          and   format(idc.ex_factory,'yyyymm')  =   wh.this_month
+		          and   d.item_no    = itm.item_no  
 		      ) dod 
 		 where doh.do_no         = dod.do_no 
-		   and doh.customer_code = c.company_code (+) 
-		   and doh.curr_code     = cu.curr_code (+) 
-		   and (to_char(doh.do_date,'yyyymm') <>   to_char(doh.bl_date,'yyyymm')  or doh.bl_date is null)
+		   and doh.customer_code = c.company_code  
+		   and doh.curr_code     = cu.curr_code  
+		   and (format(doh.do_date,'yyyymm') <>   format(doh.bl_date,'yyyymm')  or doh.bl_date is null)
 		group by   dod.THIS_MONTH,  dod.item_no
 		) a2,
 		(
@@ -546,162 +550,167 @@ WHERE ?C NOT IN (SELECT ?C FROM SALES_CHANNELS_FI_ITEM);
 		                ( select i.item_no, i.description, i.item, u.unit 
 		                  from   item i, 
 		                         unit u 
-		                  where  i.uom_q = u.unit_code (+) 
+		                  where  i.uom_q = u.unit_code  
 		                 ) itm 
 		        where   d.answer_no1 = idc.answer_no 
-		          and   to_char(idc.ex_factory,'yyyymm')  =   to_char(wh.last_month) 
-		          and   d.item_no    = itm.item_no (+) 
+		          and   format(idc.ex_factory,'yyyymm')  =   wh.last_month
+		          and   d.item_no    = itm.item_no  
 		      ) dod 
 		 where doh.do_no         = dod.do_no 
-		   and doh.customer_code = c.company_code (+) 
-		   and doh.curr_code     = cu.curr_code (+) 
-		   and to_char(doh.do_date,'yyyymm') <>   to_char(doh.bl_date,'yyyymm') 
+		   and doh.customer_code = c.company_code  
+		   and doh.curr_code     = cu.curr_code  
+		   and format(doh.do_date,'yyyymm') <>   format(doh.bl_date,'yyyymm') 
 		group by    dod.last_MONTH,  dod.item_no
 		) b2
-		where a2.ITEM_NO(+) = b2.ITEM_NO2
+		where a2.ITEM_NO = b2.ITEM_NO2
 		 and a2.ITEM_NO is null
-		), (select distinct THIS_MONTH,  LAST_MONTH    from WHINVENTORY) w;
+		)aa, (select distinct THIS_MONTH,  LAST_MONTH    from WHINVENTORY) w;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_ASSY_ACTUAL" ("ASSY_LINE", "CELL_TYPE", "BULAN", "TAHUN", "STS", "DATE_1", "DATE_2", "DATE_3", "DATE_4", "DATE_5", "DATE_6", "DATE_7", "DATE_8", "DATE_9", "DATE_10", "DATE_11", "DATE_12", "DATE_13", "DATE_14", "DATE_15", "DATE_16", "DATE_17", "DATE_18", "DATE_19", "DATE_20", "DATE_21", "DATE_22", "DATE_23", "DATE_24", "DATE_25", "DATE_26", "DATE_27", "DATE_28", "DATE_29", "DATE_30", "DATE_31") AS 
-  select distinct a.assy_line, a.cell_type, to_char(a.tanggal_actual,'MM') as bulan, to_char(a.tanggal_actual,'YYYY') as tahun, 
+create view [dbo].[ZVW_ASSY_ACTUAL] as 
+
+select distinct a.assy_line, a.cell_type, FORMAT(a.tanggal_actual,'MM') as bulan, FORMAT(a.tanggal_actual,'YYYY') as tahun, 
   'ACTUAL' as sts,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='01') as date_1,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='02') as date_2,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY')AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='03') as date_3,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='04') as date_4,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='05') as date_5,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='06') as date_6,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='07') as date_7,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='08') as date_8,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='09') as date_9,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='10') as date_10,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='11') as date_11,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='12') as date_12,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='13') as date_13,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='14') as date_14,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='15') as date_15,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='16') as date_16,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='17') as date_17,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='18') as date_18,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='19') as date_19,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='20') as date_20,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='21') as date_21,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='22') as date_22,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='23') as date_23,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='24') as date_24,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='25') as date_25,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='26') as date_26,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='27') as date_27,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='28') as date_28,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='29') as date_29,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='30') as date_30,
-  (select nvl(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
-    to_char(b.tanggal_actual,'YYYY') = to_char(a.tanggal_actual,'YYYY') AND to_char(b.tanggal_actual,'MM') = to_char(a.tanggal_actual,'MM') AND to_char(b.tanggal_actual,'DD')='31') as date_31
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='01') as date_1,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='02') as date_2,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY')AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='03') as date_3,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='04') as date_4,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='05') as date_5,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='06') as date_6,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='07') as date_7,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='08') as date_8,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='09') as date_9,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='10') as date_10,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='11') as date_11,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='12') as date_12,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='13') as date_13,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='14') as date_14,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='15') as date_15,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='16') as date_16,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='17') as date_17,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='18') as date_18,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='19') as date_19,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='20') as date_20,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='21') as date_21,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='22') as date_22,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='23') as date_23,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='24') as date_24,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='25') as date_25,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='26') as date_26,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='27') as date_27,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='28') as date_28,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='29') as date_29,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='30') as date_30,
+  (select ISNULL(sum(b.qty_act_perpallet),0) from ztb_assy_kanban b where b.assy_line = a.assy_line AND b.cell_type=a.cell_type AND 
+    FORMAT(b.tanggal_actual,'YYYY') = FORMAT(a.tanggal_actual,'YYYY') AND FORMAT(b.tanggal_actual,'MM') = FORMAT(a.tanggal_actual,'MM') AND FORMAT(b.tanggal_actual,'DD')='31') as date_31
   from ztb_assy_kanban a
-  order by to_char(a.tanggal_actual,'MM'), to_char(a.tanggal_actual,'YYYY');
- 
+  --order by FORMAT(a.tanggal_actual,'MM'), FORMAT(a.tanggal_actual,'YYYY');
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_ASSY_PLAN" ("ASSY_LINE", "CELL_TYPE", "BULAN", "TAHUN", "STS", "DATE_1", "DATE_2", "DATE_3", "DATE_4", "DATE_5", "DATE_6", "DATE_7", "DATE_8", "DATE_9", "DATE_10", "DATE_11", "DATE_12", "DATE_13", "DATE_14", "DATE_15", "DATE_16", "DATE_17", "DATE_18", "DATE_19", "DATE_20", "DATE_21", "DATE_22", "DATE_23", "DATE_24", "DATE_25", "DATE_26", "DATE_27", "DATE_28", "DATE_29", "DATE_30", "DATE_31") AS 
-  select distinct a.assy_line, a.cell_type, case when a.bulan < 10 then '0'||a.bulan else a.bulan end as bulan, a.tahun, 
+
+
+ create VIEW "ZVW_ASSY_PLAN" as
+ 
+select distinct a.assy_line, a.cell_type, case when a.bulan < 10 then '0' + a.bulan else a.bulan end as bulan, a.tahun, 
 'PLAN' as sts,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=1 AND used=1) as date_1,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=2 AND used=1) as date_2,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=3 AND used=1) as date_3,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=4 AND used=1) as date_4,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=5 AND used=1) as date_5,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=6 AND used=1) as date_6,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=7 AND used=1) as date_7,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=8 AND used=1) as date_8,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=9 AND used=1) as date_9,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=10 AND used=1) as date_10,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=11 AND used=1) as date_11,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=12 AND used=1) as date_12,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=13 AND used=1) as date_13,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=14 AND used=1) as date_14,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=15 AND used=1) as date_15,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=16 AND used=1) as date_16,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=17 AND used=1) as date_17,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=18 AND used=1) as date_18,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=19 AND used=1) as date_19,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=20 AND used=1) as date_20,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=21 AND used=1) as date_21,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=22 AND used=1) as date_22,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=23 AND used=1) as date_23,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=24 AND used=1) as date_24,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=25 AND used=1) as date_25,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=26 AND used=1) as date_26,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=27 AND used=1) as date_27,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=28 AND used=1) as date_28,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=29 AND used=1) as date_29,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=30 AND used=1) as date_30,
-  (select nvl(sum(b.qty),0) from ztb_assy_plan b 
+  (select ISNULL(sum(b.qty),0) from ztb_assy_plan b 
     where b.assy_line= a.assy_line AND b.cell_type=a.cell_type AND b.bulan= a.bulan AND b.tahun= a.tahun AND b.tanggal=31 AND used=1) as date_31
   from ztb_assy_plan a
-  order by bulan, tahun;
+  --order by bulan, tahun;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_COMPARISON" ("LABEL_TYPE", "GROUPINGLABEL", "WORK_ORDER", "ITEM_NO", "ITEM_NAME", "DATE_CODE", "PACKAGING_TYPE", "BATERY_TYPE", "GRADE", "CR_DATE", "OPERATEION_TIME", "QTY", "BULAN", "TOTAL", "STAT", "SATU", "DUA", "TIGA", "EMPAT", "LIMA", "ENAM", "TUJUH", "DELAPAN", "SEMBILAN", "SEPULUH", "SEBELAS", "DUABELAS", "TIGABELAS", "EMPATBELAS", "LIMABELAS", "ENAMBELAS", "TUJUHBELAS", "DELAPANBELAS", "SEMBILANBELAS", "DUAPULUH", "DUAPULUHSATU", "DUAPULUHDUA", "DUAPULUHTIGA", "DUAPULUHEMPAT", "DUAPULUHLIMA", "DUAPULUHENAM", "DUAPULUHTUJUH", "DUAPULUHDELAPAN", "DUAPULUHSEMBILAN", "TIGAPULUH", "TIGAPULUHSATU") AS 
+  
+ --CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_COMPARISON" ("LABEL_TYPE", "GROUPINGLABEL", "WORK_ORDER", "ITEM_NO", "ITEM_NAME", "DATE_CODE", "PACKAGING_TYPE", "BATERY_TYPE", "GRADE", "CR_DATE", "OPERATEION_TIME", "QTY", "BULAN", "TOTAL", "STAT", "SATU", "DUA", "TIGA", "EMPAT", "LIMA", "ENAM", "TUJUH", "DELAPAN", "SEMBILAN", "SEPULUH", "SEBELAS", "DUABELAS", "TIGABELAS", "EMPATBELAS", "LIMABELAS", "ENAMBELAS", "TUJUHBELAS", "DELAPANBELAS", "SEMBILANBELAS", "DUAPULUH", "DUAPULUHSATU", "DUAPULUHDUA", "DUAPULUHTIGA", "DUAPULUHEMPAT", "DUAPULUHLIMA", "DUAPULUHENAM", "DUAPULUHTUJUH", "DUAPULUHDELAPAN", "DUAPULUHSEMBILAN", "TIGAPULUH", "TIGAPULUHSATU") AS 
+ create view ZVW_COMPARISON as 
   SELECT 
        (select distinct groups_pck from ztb_item_pck where ztb_item_pck.item_no = x.item_no) as label_type,
        (select distinct package_type from ztb_item_pck where ztb_item_pck.item_no = x.item_no) as GroupingLabel,
@@ -718,37 +727,37 @@ WHERE ?C NOT IN (SELECT ?C FROM SALES_CHANNELS_FI_ITEM);
        Bulan, 
         sum(TOTAL) as Total,
        case Status when 'PLAN' Then 'A' When 'OUTPUT' Then  'C' When 'ACTUAL' Then 'B' END as STAT,
-       nvl(Sum(satu),0) as Satu,
-       nvl(Sum(Dua),0) as dua,
-       nvl(sum(tiga),0) as Tiga,
-       nvl(sum(empat),0) as empat,
-       nvl(sum(lima),0) as lima,
-       nvl(sum(enam),0) as enam,
-       nvl(sum(tujuh),0) as tujuh,
-       nvl(sum(delapan),0) as delapan,
-       nvl(sum(sembilan),0) as sembilan,
-       nvl(sum(sepuluh),0) as sepuluh,
-       nvl(sum(sebelas),0) as sebelas,
-       nvl(sum(duabelas),0) as duabelas,
-       nvl(sum(tigabelas),0) as tigabelas,
-       nvl(sum(empatbelas),0) as empatbelas,
-       nvl(sum(limabelas),0) as limabelas,
-       nvl(sum(enambelas),0) as enambelas,
-       nvl(sum(TujuhBelas),0) as tujuhbelas,
-       nvl(sum(delapanbelas),0) as delapanbelas,
-       nvl(sum(sembilanbelas),0) as sembilanbelas,
-       nvl(sum(duapuluh),0) as duapuluh,
-       nvl(sum(duapuluhsatu),0) as duapuluhsatu,
-       nvl(sum(DuaPuluhDua),0)  as DuaPuluhDua,
-       nvl(sum(DuaPuluhTiga),0)   as DuaPuluhTiga,
-       nvl(sum(DuaPuluhEmpat) ,0)  as DuaPuluhEmpat,
-       nvl(sum(DuaPuluhLima),0)  as DuaPuluhLima,
-       nvl(sum(DuaPuluhEnam),0)   as DuaPuluhEnam,
-       nvl(sum(DuaPuluhTujuh),0)  as DuaPuluhTujuh,
-       nvl(sum(DuaPuluhDelapan),0)   as DuaPuluhDelapan,
-        nvl(sum(DuaPuluhSembilan),0)   as DuaPuluhSembilan,
-        nvl(sum(TigaPuluh),0)  as TigaPuluh,
-       nvl(sum(TigaPuluhSatu),0)   as TigaPuluhSatu
+       ISNULL(Sum(satu),0) as Satu,
+       ISNULL(Sum(Dua),0) as dua,
+       ISNULL(sum(tiga),0) as Tiga,
+       ISNULL(sum(empat),0) as empat,
+       ISNULL(sum(lima),0) as lima,
+       ISNULL(sum(enam),0) as enam,
+       ISNULL(sum(tujuh),0) as tujuh,
+       ISNULL(sum(delapan),0) as delapan,
+       ISNULL(sum(sembilan),0) as sembilan,
+       ISNULL(sum(sepuluh),0) as sepuluh,
+       ISNULL(sum(sebelas),0) as sebelas,
+       ISNULL(sum(duabelas),0) as duabelas,
+       ISNULL(sum(tigabelas),0) as tigabelas,
+       ISNULL(sum(empatbelas),0) as empatbelas,
+       ISNULL(sum(limabelas),0) as limabelas,
+       ISNULL(sum(enambelas),0) as enambelas,
+       ISNULL(sum(TujuhBelas),0) as tujuhbelas,
+       ISNULL(sum(delapanbelas),0) as delapanbelas,
+       ISNULL(sum(sembilanbelas),0) as sembilanbelas,
+       ISNULL(sum(duapuluh),0) as duapuluh,
+       ISNULL(sum(duapuluhsatu),0) as duapuluhsatu,
+       ISNULL(sum(DuaPuluhDua),0)  as DuaPuluhDua,
+       ISNULL(sum(DuaPuluhTiga),0)   as DuaPuluhTiga,
+       ISNULL(sum(DuaPuluhEmpat) ,0)  as DuaPuluhEmpat,
+       ISNULL(sum(DuaPuluhLima),0)  as DuaPuluhLima,
+       ISNULL(sum(DuaPuluhEnam),0)   as DuaPuluhEnam,
+       ISNULL(sum(DuaPuluhTujuh),0)  as DuaPuluhTujuh,
+       ISNULL(sum(DuaPuluhDelapan),0)   as DuaPuluhDelapan,
+        ISNULL(sum(DuaPuluhSembilan),0)   as DuaPuluhSembilan,
+        ISNULL(sum(TigaPuluh),0)  as TigaPuluh,
+       ISNULL(sum(TigaPuluhSatu),0)   as TigaPuluhSatu
    FROM (
 select label_type,
        work_order, 
@@ -761,44 +770,44 @@ select label_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH') as Bulan, 
+       FORMAT(MPS_date,'MONTH') as Bulan, 
        'PLAN' as Status,
        sum(s.mps_qty) as Total,
-       case when to_char(MPS_date,'DD') = 1 then sum(s.mps_qty) end  as Satu,
-       case when to_char(MPS_date,'DD') = 2 then sum(s.mps_qty) end as Dua,
-       case when to_char(MPS_date,'DD') = 3 then sum(s.mps_qty) end as Tiga,
-       case when to_char(MPS_date,'DD') = 4 then sum(s.mps_qty) end as empat,
-       case when to_char(MPS_date,'DD') = 5 then sum(s.mps_qty) end as Lima,
-       case when to_char(MPS_date,'DD') = 6 then sum(s.mps_qty) end as Enam,
-       case when to_char(MPS_date,'DD') = 7 then sum(s.mps_qty) end as Tujuh,
-       case when to_char(MPS_date,'DD') = 8 then sum(s.mps_qty) end as Delapan,
-        case when to_char(MPS_date,'DD') = 9 then sum(s.mps_qty) end as Sembilan,
-       case when to_char(MPS_date,'DD') = 10 then sum(s.mps_qty) end as sepuluh,
-       case when to_char(MPS_date,'DD') = 11 then sum(s.mps_qty) end as Sebelas,
-       case when to_char(MPS_date,'DD') = 12 then sum(s.mps_qty) end as DuaBelas,
-        case when to_char(MPS_date,'DD') = 13 then sum(s.mps_qty) end as TigaBelas,
-       case when to_char(MPS_date,'DD') = 14 then sum(s.mps_qty) end as EmpatBelas,
-       case when to_char(MPS_date,'DD') = 15 then sum(s.mps_qty) end as LimaBelas,
-       case when to_char(MPS_date,'DD') = 16 then sum(s.mps_qty) end as EnamBelas,
-        case when to_char(MPS_date,'DD') = 17 then sum(s.mps_qty) end as TujuhBelas,
-       case when to_char(MPS_date,'DD') = 18 then sum(s.mps_qty) end as DelapanBelas,
-       case when to_char(MPS_date,'DD') = 19 then sum(s.mps_qty) end as SembilanBelas,
-       case when to_char(MPS_date,'DD') = 20 then sum(s.mps_qty) end as DuaPuluh,
-        case when to_char(MPS_date,'DD') = 21 then sum(s.mps_qty) end as DuaPuluhSatu,
-       case when to_char(MPS_date,'DD') = 22 then sum(s.mps_qty) end as DuaPuluhDua,
-       case when to_char(MPS_date,'DD') = 23 then sum(s.mps_qty) end as DuaPuluhTiga,
-       case when to_char(MPS_date,'DD') = 24 then sum(s.mps_qty) end as DuaPuluhEmpat,
-        case when to_char(MPS_date,'DD') = 25 then sum(s.mps_qty) end as DuaPuluhLima,
-       case when to_char(MPS_date,'DD') = 26 then sum(s.mps_qty) end as DuaPuluhEnam,
-       case when to_char(MPS_date,'DD') = 27 then sum(s.mps_qty) end as DuaPuluhTujuh,
-       case when to_char(MPS_date,'DD') = 28 then sum(s.mps_qty) end as DuaPuluhDelapan,
-        case when to_char(MPS_date,'DD') = 29 then sum(s.mps_qty) end as DuaPuluhSembilan,
-       case when to_char(MPS_date,'DD') = 30 then sum(s.mps_qty) end as TigaPuluh,
-       case when to_char(MPS_date,'DD') = 31 then sum(s.mps_qty) end as TigaPuluhSatu
+       case when FORMAT(MPS_date,'DD') = 1 then sum(s.mps_qty) end  as Satu,
+       case when FORMAT(MPS_date,'DD') = 2 then sum(s.mps_qty) end as Dua,
+       case when FORMAT(MPS_date,'DD') = 3 then sum(s.mps_qty) end as Tiga,
+       case when FORMAT(MPS_date,'DD') = 4 then sum(s.mps_qty) end as empat,
+       case when FORMAT(MPS_date,'DD') = 5 then sum(s.mps_qty) end as Lima,
+       case when FORMAT(MPS_date,'DD') = 6 then sum(s.mps_qty) end as Enam,
+       case when FORMAT(MPS_date,'DD') = 7 then sum(s.mps_qty) end as Tujuh,
+       case when FORMAT(MPS_date,'DD') = 8 then sum(s.mps_qty) end as Delapan,
+        case when FORMAT(MPS_date,'DD') = 9 then sum(s.mps_qty) end as Sembilan,
+       case when FORMAT(MPS_date,'DD') = 10 then sum(s.mps_qty) end as sepuluh,
+       case when FORMAT(MPS_date,'DD') = 11 then sum(s.mps_qty) end as Sebelas,
+       case when FORMAT(MPS_date,'DD') = 12 then sum(s.mps_qty) end as DuaBelas,
+        case when FORMAT(MPS_date,'DD') = 13 then sum(s.mps_qty) end as TigaBelas,
+       case when FORMAT(MPS_date,'DD') = 14 then sum(s.mps_qty) end as EmpatBelas,
+       case when FORMAT(MPS_date,'DD') = 15 then sum(s.mps_qty) end as LimaBelas,
+       case when FORMAT(MPS_date,'DD') = 16 then sum(s.mps_qty) end as EnamBelas,
+        case when FORMAT(MPS_date,'DD') = 17 then sum(s.mps_qty) end as TujuhBelas,
+       case when FORMAT(MPS_date,'DD') = 18 then sum(s.mps_qty) end as DelapanBelas,
+       case when FORMAT(MPS_date,'DD') = 19 then sum(s.mps_qty) end as SembilanBelas,
+       case when FORMAT(MPS_date,'DD') = 20 then sum(s.mps_qty) end as DuaPuluh,
+        case when FORMAT(MPS_date,'DD') = 21 then sum(s.mps_qty) end as DuaPuluhSatu,
+       case when FORMAT(MPS_date,'DD') = 22 then sum(s.mps_qty) end as DuaPuluhDua,
+       case when FORMAT(MPS_date,'DD') = 23 then sum(s.mps_qty) end as DuaPuluhTiga,
+       case when FORMAT(MPS_date,'DD') = 24 then sum(s.mps_qty) end as DuaPuluhEmpat,
+        case when FORMAT(MPS_date,'DD') = 25 then sum(s.mps_qty) end as DuaPuluhLima,
+       case when FORMAT(MPS_date,'DD') = 26 then sum(s.mps_qty) end as DuaPuluhEnam,
+       case when FORMAT(MPS_date,'DD') = 27 then sum(s.mps_qty) end as DuaPuluhTujuh,
+       case when FORMAT(MPS_date,'DD') = 28 then sum(s.mps_qty) end as DuaPuluhDelapan,
+        case when FORMAT(MPS_date,'DD') = 29 then sum(s.mps_qty) end as DuaPuluhSembilan,
+       case when FORMAT(MPS_date,'DD') = 30 then sum(s.mps_qty) end as TigaPuluh,
+       case when FORMAT(MPS_date,'DD') = 31 then sum(s.mps_qty) end as TigaPuluhSatu
 from mps_header r
 inner join mps_details s 
 ON r.po_no = s.po_no and r.po_line_no = s.po_line_no
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER'
+--where  FORMAT(MPS_date,'MONTH') = 'SEPTEMBER'
 group by label_type,
        work_order, 
        item_no,
@@ -810,8 +819,8 @@ group by label_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH'),
-      to_char(MPS_date,'DD')
+       FORMAT(MPS_date,'MONTH'),
+      FORMAT(MPS_date,'DD')
       
 UNION ALL
           
@@ -826,40 +835,40 @@ select label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'), 
+       FORMAT(SLIP_DATE,'MONTH'), 
       'OUTPUT',
       sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ),
-       case when to_char(SLIP_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
-       case when to_char(SLIP_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
-       case when to_char(SLIP_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
-       case when to_char(SLIP_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
-       case when to_char(SLIP_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
-       case when to_char(SLIP_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
-       case when to_char(SLIP_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
-       case when to_char(SLIP_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
-        case when to_char(SLIP_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
-       case when to_char(SLIP_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
-       case when to_char(SLIP_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
-       case when to_char(SLIP_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
-        case when to_char(SLIP_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
-       case when to_char(SLIP_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
-       case when to_char(SLIP_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
-       case when to_char(SLIP_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
-        case when to_char(SLIP_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
-       case when to_char(SLIP_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
-       case when to_char(SLIP_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
-       case when to_char(SLIP_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
-        case when to_char(SLIP_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
-       case when to_char(SLIP_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
-       case when to_char(SLIP_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
-       case when to_char(SLIP_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
-        case when to_char(SLIP_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
-       case when to_char(SLIP_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
-       case when to_char(SLIP_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
-       case when to_char(SLIP_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
-        case when to_char(SLIP_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
-       case when to_char(SLIP_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
-       case when to_char(SLIP_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
+       case when FORMAT(SLIP_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
+       case when FORMAT(SLIP_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
+       case when FORMAT(SLIP_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
+       case when FORMAT(SLIP_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
+       case when FORMAT(SLIP_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
+       case when FORMAT(SLIP_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
+       case when FORMAT(SLIP_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
+       case when FORMAT(SLIP_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
+        case when FORMAT(SLIP_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
+       case when FORMAT(SLIP_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
+       case when FORMAT(SLIP_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
+       case when FORMAT(SLIP_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
+        case when FORMAT(SLIP_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
+       case when FORMAT(SLIP_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
+       case when FORMAT(SLIP_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
+       case when FORMAT(SLIP_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
+        case when FORMAT(SLIP_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
+       case when FORMAT(SLIP_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
+       case when FORMAT(SLIP_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
+       case when FORMAT(SLIP_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
+        case when FORMAT(SLIP_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
+       case when FORMAT(SLIP_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
+       case when FORMAT(SLIP_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
+       case when FORMAT(SLIP_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
+        case when FORMAT(SLIP_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
+       case when FORMAT(SLIP_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
+       case when FORMAT(SLIP_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
+       case when FORMAT(SLIP_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
+        case when FORMAT(SLIP_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
+       case when FORMAT(SLIP_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
+       case when FORMAT(SLIP_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
 
 from production_income s
 inner join  mps_header r
@@ -876,8 +885,8 @@ group by label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'),
-       to_char(SLIP_DATE,'DD')
+       FORMAT(SLIP_DATE,'MONTH'),
+       FORMAT(SLIP_DATE,'DD')
     
   
 
@@ -896,45 +905,45 @@ select label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(APPROVAL_DATE,'MONTH'), 
+       FORMAT(APPROVAL_DATE,'MONTH'), 
       'ACTUAL',
       sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ),
-       case when to_char(APPROVAL_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
-       case when to_char(APPROVAL_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
-       case when to_char(APPROVAL_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
-       case when to_char(APPROVAL_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
-       case when to_char(APPROVAL_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
-       case when to_char(APPROVAL_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
-       case when to_char(APPROVAL_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
-       case when to_char(APPROVAL_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
-        case when to_char(APPROVAL_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
-       case when to_char(APPROVAL_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
-       case when to_char(APPROVAL_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
-       case when to_char(APPROVAL_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
-        case when to_char(APPROVAL_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
-       case when to_char(APPROVAL_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
-       case when to_char(APPROVAL_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
-       case when to_char(APPROVAL_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
-        case when to_char(APPROVAL_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
-       case when to_char(APPROVAL_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
-       case when to_char(APPROVAL_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
-       case when to_char(APPROVAL_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
-        case when to_char(APPROVAL_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
-       case when to_char(APPROVAL_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
-       case when to_char(APPROVAL_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
+       case when FORMAT(APPROVAL_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
+       case when FORMAT(APPROVAL_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
+       case when FORMAT(APPROVAL_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
+       case when FORMAT(APPROVAL_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
+       case when FORMAT(APPROVAL_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
+       case when FORMAT(APPROVAL_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
+       case when FORMAT(APPROVAL_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
+       case when FORMAT(APPROVAL_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
+        case when FORMAT(APPROVAL_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
+       case when FORMAT(APPROVAL_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
+       case when FORMAT(APPROVAL_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
+       case when FORMAT(APPROVAL_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
+       case when FORMAT(APPROVAL_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
+       case when FORMAT(APPROVAL_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
+       case when FORMAT(APPROVAL_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
+       case when FORMAT(APPROVAL_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
+       case when FORMAT(APPROVAL_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
+       case when FORMAT(APPROVAL_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
+       case when FORMAT(APPROVAL_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
+       case when FORMAT(APPROVAL_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
+        case when FORMAT(APPROVAL_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
+       case when FORMAT(APPROVAL_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
+       case when FORMAT(APPROVAL_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
+       case when FORMAT(APPROVAL_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
+        case when FORMAT(APPROVAL_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
+       case when FORMAT(APPROVAL_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
+       case when FORMAT(APPROVAL_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
+       case when FORMAT(APPROVAL_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
+        case when FORMAT(APPROVAL_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
+       case when FORMAT(APPROVAL_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
+       case when FORMAT(APPROVAL_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
 from production_income s
 inner join  mps_header r
 on s.wo_no = r.work_order
 
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER' 
+--where  FORMAT(MPS_date,'MONTH') = 'SEPTEMBER' 
 
 group by label_type,
        s.Wo_no,
@@ -947,8 +956,8 @@ group by label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(APPROVAL_DATE,'MONTH'),
-       to_char(APPROVAL_DATE,'DD')
+       FORMAT(APPROVAL_DATE,'MONTH'),
+       FORMAT(APPROVAL_DATE,'DD')
 
 ) x
 
@@ -969,19 +978,17 @@ group by label_type,
        qty,
        Bulan, 
        Status
-order by Label_type,x.Work_order,STAT;
+--order by Label_type,x.Work_order,STAT;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_COMPARISON_LABEL" ("BATERY_TYPE", "BULAN", "HARI", "STAT", "PLN", "OUTPUT", "ACUMM") AS 
+ create view ZVW_COMPARISON_LABEL as 
   SELECT
         
-        battery_type as batery_type, 
-      
+        battery_type as batery_type,
         trim(Bulan) as bulan, 
         cast(hari as integer) as Hari,
         case Status when 'PLAN' Then 'A' When 'OUTPUT' Then  'B' When 'ACTUAL' Then 'C' when 'ACCUM' Then 'D'   END as STAT,
         case when Status = 'PLAN' Then     sum(TOTAL) end as Pln,
-     
         case when status = 'ACTUAL' Then   sum(TOTAL)  end as Output,
          case when status = 'ACCUM' Then    sum(TOTAL)   END as Acumm
       
@@ -996,10 +1003,10 @@ select a.wo_no as work_order,
        a.cr_Date,
        0 as operation_time,
        a.total as Qty,
-        to_char(date_prod,'MONTH') as Bulan,
+        FORMAT(date_prod,'MONTH') as Bulan,
        'PLAN' as status,
        sum(qty) as Total,
-        to_char(date_prod,'DD') as Hari
+        FORMAT(date_prod,'DD') as Hari
 from ztb_label_detail s
 inner join ztb_label_header a 
 ON a.wo_no = s.wo_no
@@ -1011,8 +1018,8 @@ group by a.wo_no ,
        a.grade,
        a.cr_Date,
        a.total,
-       to_char(date_prod,'MONTH'),
-       to_char(date_prod,'DD')
+       FORMAT(date_prod,'MONTH'),
+       FORMAT(date_prod,'DD')
      
       
 UNION ALL
@@ -1027,10 +1034,10 @@ select b.wo_no,
        b.cr_date,
        0 as OpTime,
         0 as Qty,
-        to_char(mulai,'MONTH') as Bulan,
+        FORMAT(mulai,'MONTH') as Bulan,
        'ACTUAL' as status,
          sum(Battery_in) as Total,
-        to_char(mulai,'DD')
+        FORMAT(mulai,'DD')
 from ZTB_KANBAN_LBL s
 inner join ztb_l_plan b
 on s.idkanban = b.id
@@ -1044,8 +1051,8 @@ group by b.wo_no,
        b.type_item,
        b.grade,
        b.cr_date,
-       to_char(mulai,'MONTH'),
-       to_char(mulai,'DD')  
+       FORMAT(mulai,'MONTH'),
+       FORMAT(mulai,'DD')  
           
 
     
@@ -1053,17 +1060,16 @@ group by b.wo_no,
 
  
 
-) 
+) aa
 
 group by 
         battery_type, 
 Hari,
        Bulan, 
        Status
-order by battery_type,STAT;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_COMPARISON_SUMMARY" ("LABEL_TYPE", "BATERY_TYPE", "BULAN", "HARI", "STAT", "PLN", "OUTPUT", "ACUMM") AS 
+   create view ZVW_COMPARISON_SUMMARY as
   SELECT
        label_type , 
        batery_type, 
@@ -1077,7 +1083,7 @@ order by battery_type,STAT;
       case when status = 'ACCUM' Then    sum(TOTAL)   END as Acumm
       
    FROM (
-select nvl(zz.package_type,packaging_type) label_type,
+select ISNULL(zz.package_type,packaging_type) label_type,
        work_order, 
        r.item_no,
        r.item_name, 
@@ -1088,16 +1094,16 @@ select nvl(zz.package_type,packaging_type) label_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH') as Bulan, 
+       FORMAT(MPS_date,'MONTH') as Bulan, 
        'PLAN' as Status,
        sum(s.mps_qty) as Total,
-      to_char(MPS_date,'DD') as Hari
+      FORMAT(MPS_date,'DD') as Hari
 from mps_header r
 inner join mps_details s 
 ON r.po_no = s.po_no and r.po_line_no = s.po_line_no
 left outer join ztb_item_pck zz
 on r.item_no = zz.item_no
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER'
+--where  FORMAT(MPS_date,'MONTH') = 'SEPTEMBER'
 group by zz.package_type,
        work_order, 
        r.item_no,
@@ -1109,12 +1115,12 @@ group by zz.package_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH'),
-      to_char(MPS_date,'DD')
+       FORMAT(MPS_date,'MONTH'),
+      FORMAT(MPS_date,'DD')
       
 UNION ALL
           
-select nvl(zz.package_type,packaging_type) label_type,
+select ISNULL(zz.package_type,packaging_type) label_type,
        s.Wo_no,
        s.Item_no,
        r.item_name, 
@@ -1125,16 +1131,16 @@ select nvl(zz.package_type,packaging_type) label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'), 
+       FORMAT(SLIP_DATE,'MONTH'), 
       'ACTUAL',
       sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ),
-      to_char(SLIP_DATE,'DD')
+      FORMAT(SLIP_DATE,'DD')
 from production_income s
 inner join  mps_header r
 on s.wo_no = r.work_order
 left outer join ztb_item_pck zz
 on r.item_no = zz.item_no
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER' 
+--where  FORMAT(MPS_date,'MONTH') = 'SEPTEMBER' 
 group by zz.package_type,
        s.Wo_no,
        s.Item_no,
@@ -1146,8 +1152,8 @@ group by zz.package_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'),
-       to_char(SLIP_DATE,'DD')
+       FORMAT(SLIP_DATE,'MONTH'),
+       FORMAT(SLIP_DATE,'DD')
     
   
 
@@ -1157,7 +1163,7 @@ UNION ALL
 
 
    
-select nvl(zz.package_type,packaging_type) label_type,
+select ISNULL(zz.package_type,packaging_type) label_type,
        work_order, 
        r.item_no,
        r.item_name, 
@@ -1168,16 +1174,16 @@ select nvl(zz.package_type,packaging_type) label_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH') as Bulan, 
+       FORMAT(MPS_date,'MONTH') as Bulan, 
        'ACCUM' as Status,
       -1*sum(s.mps_qty) as Total,
-       to_char(MPS_date,'DD')
+       FORMAT(MPS_date,'DD')
 from mps_header r
 inner join mps_details s 
 ON r.po_no = s.po_no and r.po_line_no = s.po_line_no
 left outer join ztb_item_pck zz
 on r.item_no = zz.item_no
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER'
+--where  FORMAT(MPS_date,'MONTH') = 'SEPTEMBER'
 group by zz.package_type,
        work_order, 
        r.item_no,
@@ -1189,13 +1195,13 @@ group by zz.package_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH'),
-      to_char(MPS_date,'DD')
+       FORMAT(MPS_date,'MONTH'),
+      FORMAT(MPS_date,'DD')
        
 UNION ALL
 
    
-select nvl(zz.package_type,packaging_type) label_type,
+select ISNULL(zz.package_type,packaging_type) label_type,
        s.Wo_no,
        s.Item_no,
        r.item_name, 
@@ -1206,17 +1212,17 @@ select nvl(zz.package_type,packaging_type) label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'), 
+       FORMAT(SLIP_DATE,'MONTH'), 
       'ACCUM',
        sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ),
-       to_char(SLIP_DATE,'DD')
+       FORMAT(SLIP_DATE,'DD')
        
        from production_income s
 inner join  mps_header r
 on s.wo_no = r.work_order
 left outer join ztb_item_pck zz
 on r.item_no = zz.item_no
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER' 
+--where  FORMAT(MPS_date,'MONTH') = 'SEPTEMBER' 
 group by zz.package_type,
        s.Wo_no,
        s.Item_no,
@@ -1228,20 +1234,19 @@ group by zz.package_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'),
-       to_char(SLIP_DATE,'DD')
+       FORMAT(SLIP_DATE,'MONTH'),
+       FORMAT(SLIP_DATE,'DD')
 
-) 
+) aa
 
 group by 
        label_type , batery_type, 
 Hari,
        Bulan, 
        Status
-order by Label_type,STAT;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_COMPARISON2" ("LABEL_TYPE", "GROUPINGLABEL", "WORK_ORDER", "ITEM_NO", "ITEM_NAME", "DATE_CODE", "PACKAGING_TYPE", "BATERY_TYPE", "GRADE", "CR_DATE", "OPERATEION_TIME", "QTY", "BULAN", "TOTAL", "STAT", "SATU", "DUA", "TIGA", "EMPAT", "LIMA", "ENAM", "TUJUH", "DELAPAN", "SEMBILAN", "SEPULUH", "SEBELAS", "DUABELAS", "TIGABELAS", "EMPATBELAS", "LIMABELAS", "ENAMBELAS", "TUJUHBELAS", "DELAPANBELAS", "SEMBILANBELAS", "DUAPULUH", "DUAPULUHSATU", "DUAPULUHDUA", "DUAPULUHTIGA", "DUAPULUHEMPAT", "DUAPULUHLIMA", "DUAPULUHENAM", "DUAPULUHTUJUH", "DUAPULUHDELAPAN", "DUAPULUHSEMBILAN", "TIGAPULUH", "TIGAPULUHSATU") AS 
+ create view  ZVW_COMPARISON2 as 
   SELECT label_type,
        second_machine as GroupingLabel,
        x.work_order, 
@@ -1258,36 +1263,36 @@ order by Label_type,STAT;
         sum(TOTAL) as Total,
        case Status when 'PLAN' Then 'A' When 'OUTPUT' Then  'C' When 'ACTUAL' Then 'B' END as STAT,
       0 as Satu,
-       nvl(Sum(satu),0) as dua,
-       nvl(sum(Dua),0) as Tiga,
-       nvl(sum(tiga),0) as empat,
-       nvl(sum(empat),0) as lima,
-       nvl(sum(lima),0) as enam,
-       nvl(sum(enam),0) as tujuh,
-       nvl(sum(tujuh),0) as delapan,
-       nvl(sum(delapan),0) as sembilan,
-       nvl(sum(sembilan),0) as sepuluh,
-       nvl(sum(sepuluh),0) as sebelas,
-       nvl(sum(sebelas),0) as duabelas,
-       nvl(sum(duabelas),0) as tigabelas,
-       nvl(sum(tigabelas),0) as empatbelas,
-       nvl(sum(empatbelas),0) as limabelas,
-       nvl(sum(limabelas),0) as enambelas,
-       nvl(sum(enambelas),0) as tujuhbelas,
-       nvl(sum(TujuhBelas),0) as delapanbelas,
-       nvl(sum(delapanbelas),0) as sembilanbelas,
-       nvl(sum(sembilanbelas),0) as duapuluh,
-       nvl(sum(duapuluh),0) as duapuluhsatu,
-       nvl(sum(duapuluhsatu),0)  as DuaPuluhDua,
-       nvl(sum(DuaPuluhDua),0)   as DuaPuluhTiga,
-       nvl(sum(DuaPuluhTiga) ,0)  as DuaPuluhEmpat,
-       nvl(sum(DuaPuluhEmpat),0)  as DuaPuluhLima,
-       nvl(sum(DuaPuluhLima),0)   as DuaPuluhEnam,
-       nvl(sum(DuaPuluhEnam),0)  as DuaPuluhTujuh,
-       nvl(sum(DuaPuluhTujuh),0)   as DuaPuluhDelapan,
-        nvl(sum(DuaPuluhDelapan),0)   as DuaPuluhSembilan,
-        nvl(sum(DuaPuluhSembilan),0)  as TigaPuluh,
-       nvl(sum(TigaPuluh),0)   as TigaPuluhSatu
+       ISNULL(Sum(satu),0) as dua,
+       ISNULL(sum(Dua),0) as Tiga,
+       ISNULL(sum(tiga),0) as empat,
+       ISNULL(sum(empat),0) as lima,
+       ISNULL(sum(lima),0) as enam,
+       ISNULL(sum(enam),0) as tujuh,
+       ISNULL(sum(tujuh),0) as delapan,
+       ISNULL(sum(delapan),0) as sembilan,
+       ISNULL(sum(sembilan),0) as sepuluh,
+       ISNULL(sum(sepuluh),0) as sebelas,
+       ISNULL(sum(sebelas),0) as duabelas,
+       ISNULL(sum(duabelas),0) as tigabelas,
+       ISNULL(sum(tigabelas),0) as empatbelas,
+       ISNULL(sum(empatbelas),0) as limabelas,
+       ISNULL(sum(limabelas),0) as enambelas,
+       ISNULL(sum(enambelas),0) as tujuhbelas,
+       ISNULL(sum(TujuhBelas),0) as delapanbelas,
+       ISNULL(sum(delapanbelas),0) as sembilanbelas,
+       ISNULL(sum(sembilanbelas),0) as duapuluh,
+       ISNULL(sum(duapuluh),0) as duapuluhsatu,
+       ISNULL(sum(duapuluhsatu),0)  as DuaPuluhDua,
+       ISNULL(sum(DuaPuluhDua),0)   as DuaPuluhTiga,
+       ISNULL(sum(DuaPuluhTiga) ,0)  as DuaPuluhEmpat,
+       ISNULL(sum(DuaPuluhEmpat),0)  as DuaPuluhLima,
+       ISNULL(sum(DuaPuluhLima),0)   as DuaPuluhEnam,
+       ISNULL(sum(DuaPuluhEnam),0)  as DuaPuluhTujuh,
+       ISNULL(sum(DuaPuluhTujuh),0)   as DuaPuluhDelapan,
+        ISNULL(sum(DuaPuluhDelapan),0)   as DuaPuluhSembilan,
+        ISNULL(sum(DuaPuluhSembilan),0)  as TigaPuluh,
+       ISNULL(sum(TigaPuluh),0)   as TigaPuluhSatu
    FROM (
 select label_type,
        work_order, 
@@ -1300,44 +1305,44 @@ select label_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH') as Bulan, 
+       format(MPS_date,'MONTH') as Bulan, 
        'PLAN' as Status,
        sum(s.mps_qty) as Total,
-       case when to_char(MPS_date,'DD') = 1 then sum(s.mps_qty) end  as Satu,
-       case when to_char(MPS_date,'DD') = 2 then sum(s.mps_qty) end as Dua,
-       case when to_char(MPS_date,'DD') = 3 then sum(s.mps_qty) end as Tiga,
-       case when to_char(MPS_date,'DD') = 4 then sum(s.mps_qty) end as empat,
-       case when to_char(MPS_date,'DD') = 5 then sum(s.mps_qty) end as Lima,
-       case when to_char(MPS_date,'DD') = 6 then sum(s.mps_qty) end as Enam,
-       case when to_char(MPS_date,'DD') = 7 then sum(s.mps_qty) end as Tujuh,
-       case when to_char(MPS_date,'DD') = 8 then sum(s.mps_qty) end as Delapan,
-        case when to_char(MPS_date,'DD') = 9 then sum(s.mps_qty) end as Sembilan,
-       case when to_char(MPS_date,'DD') = 10 then sum(s.mps_qty) end as sepuluh,
-       case when to_char(MPS_date,'DD') = 11 then sum(s.mps_qty) end as Sebelas,
-       case when to_char(MPS_date,'DD') = 12 then sum(s.mps_qty) end as DuaBelas,
-        case when to_char(MPS_date,'DD') = 13 then sum(s.mps_qty) end as TigaBelas,
-       case when to_char(MPS_date,'DD') = 14 then sum(s.mps_qty) end as EmpatBelas,
-       case when to_char(MPS_date,'DD') = 15 then sum(s.mps_qty) end as LimaBelas,
-       case when to_char(MPS_date,'DD') = 16 then sum(s.mps_qty) end as EnamBelas,
-        case when to_char(MPS_date,'DD') = 17 then sum(s.mps_qty) end as TujuhBelas,
-       case when to_char(MPS_date,'DD') = 18 then sum(s.mps_qty) end as DelapanBelas,
-       case when to_char(MPS_date,'DD') = 19 then sum(s.mps_qty) end as SembilanBelas,
-       case when to_char(MPS_date,'DD') = 20 then sum(s.mps_qty) end as DuaPuluh,
-        case when to_char(MPS_date,'DD') = 21 then sum(s.mps_qty) end as DuaPuluhSatu,
-       case when to_char(MPS_date,'DD') = 22 then sum(s.mps_qty) end as DuaPuluhDua,
-       case when to_char(MPS_date,'DD') = 23 then sum(s.mps_qty) end as DuaPuluhTiga,
-       case when to_char(MPS_date,'DD') = 24 then sum(s.mps_qty) end as DuaPuluhEmpat,
-        case when to_char(MPS_date,'DD') = 25 then sum(s.mps_qty) end as DuaPuluhLima,
-       case when to_char(MPS_date,'DD') = 26 then sum(s.mps_qty) end as DuaPuluhEnam,
-       case when to_char(MPS_date,'DD') = 27 then sum(s.mps_qty) end as DuaPuluhTujuh,
-       case when to_char(MPS_date,'DD') = 28 then sum(s.mps_qty) end as DuaPuluhDelapan,
-        case when to_char(MPS_date,'DD') = 29 then sum(s.mps_qty) end as DuaPuluhSembilan,
-       case when to_char(MPS_date,'DD') = 30 then sum(s.mps_qty) end as TigaPuluh,
-       case when to_char(MPS_date,'DD') = 31 then sum(s.mps_qty) end as TigaPuluhSatu
+       case when format(MPS_date,'DD') = 1 then sum(s.mps_qty) end  as Satu,
+       case when format(MPS_date,'DD') = 2 then sum(s.mps_qty) end as Dua,
+       case when format(MPS_date,'DD') = 3 then sum(s.mps_qty) end as Tiga,
+       case when format(MPS_date,'DD') = 4 then sum(s.mps_qty) end as empat,
+       case when format(MPS_date,'DD') = 5 then sum(s.mps_qty) end as Lima,
+       case when format(MPS_date,'DD') = 6 then sum(s.mps_qty) end as Enam,
+       case when format(MPS_date,'DD') = 7 then sum(s.mps_qty) end as Tujuh,
+       case when format(MPS_date,'DD') = 8 then sum(s.mps_qty) end as Delapan,
+        case when format(MPS_date,'DD') = 9 then sum(s.mps_qty) end as Sembilan,
+       case when format(MPS_date,'DD') = 10 then sum(s.mps_qty) end as sepuluh,
+       case when format(MPS_date,'DD') = 11 then sum(s.mps_qty) end as Sebelas,
+       case when format(MPS_date,'DD') = 12 then sum(s.mps_qty) end as DuaBelas,
+        case when format(MPS_date,'DD') = 13 then sum(s.mps_qty) end as TigaBelas,
+       case when format(MPS_date,'DD') = 14 then sum(s.mps_qty) end as EmpatBelas,
+       case when format(MPS_date,'DD') = 15 then sum(s.mps_qty) end as LimaBelas,
+       case when format(MPS_date,'DD') = 16 then sum(s.mps_qty) end as EnamBelas,
+        case when format(MPS_date,'DD') = 17 then sum(s.mps_qty) end as TujuhBelas,
+       case when format(MPS_date,'DD') = 18 then sum(s.mps_qty) end as DelapanBelas,
+       case when format(MPS_date,'DD') = 19 then sum(s.mps_qty) end as SembilanBelas,
+       case when format(MPS_date,'DD') = 20 then sum(s.mps_qty) end as DuaPuluh,
+        case when format(MPS_date,'DD') = 21 then sum(s.mps_qty) end as DuaPuluhSatu,
+       case when format(MPS_date,'DD') = 22 then sum(s.mps_qty) end as DuaPuluhDua,
+       case when format(MPS_date,'DD') = 23 then sum(s.mps_qty) end as DuaPuluhTiga,
+       case when format(MPS_date,'DD') = 24 then sum(s.mps_qty) end as DuaPuluhEmpat,
+        case when format(MPS_date,'DD') = 25 then sum(s.mps_qty) end as DuaPuluhLima,
+       case when format(MPS_date,'DD') = 26 then sum(s.mps_qty) end as DuaPuluhEnam,
+       case when format(MPS_date,'DD') = 27 then sum(s.mps_qty) end as DuaPuluhTujuh,
+       case when format(MPS_date,'DD') = 28 then sum(s.mps_qty) end as DuaPuluhDelapan,
+        case when format(MPS_date,'DD') = 29 then sum(s.mps_qty) end as DuaPuluhSembilan,
+       case when format(MPS_date,'DD') = 30 then sum(s.mps_qty) end as TigaPuluh,
+       case when format(MPS_date,'DD') = 31 then sum(s.mps_qty) end as TigaPuluhSatu
 from mps_header r
 inner join mps_details s 
 ON r.po_no = s.po_no and r.po_line_no = s.po_line_no
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER'
+--where  format(MPS_date,'MONTH') = 'SEPTEMBER'
 group by label_type,
        work_order, 
        item_no,
@@ -1349,8 +1354,8 @@ group by label_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH'),
-      to_char(MPS_date,'DD')
+       format(MPS_date,'MONTH'),
+      format(MPS_date,'DD')
       
 UNION ALL
           
@@ -1365,40 +1370,40 @@ select label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'), 
+       format(SLIP_DATE,'MONTH'), 
       'OUTPUT',
       sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ),
-       case when to_char(SLIP_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
-       case when to_char(SLIP_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
-       case when to_char(SLIP_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
-       case when to_char(SLIP_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
-       case when to_char(SLIP_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
-       case when to_char(SLIP_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
-       case when to_char(SLIP_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
-       case when to_char(SLIP_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
-        case when to_char(SLIP_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
-       case when to_char(SLIP_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
-       case when to_char(SLIP_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
-       case when to_char(SLIP_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
-        case when to_char(SLIP_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
-       case when to_char(SLIP_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
-       case when to_char(SLIP_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
-       case when to_char(SLIP_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
-        case when to_char(SLIP_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
-       case when to_char(SLIP_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
-       case when to_char(SLIP_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
-       case when to_char(SLIP_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
-        case when to_char(SLIP_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
-       case when to_char(SLIP_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
-       case when to_char(SLIP_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
-       case when to_char(SLIP_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
-        case when to_char(SLIP_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
-       case when to_char(SLIP_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
-       case when to_char(SLIP_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
-       case when to_char(SLIP_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
-        case when to_char(SLIP_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
-       case when to_char(SLIP_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
-       case when to_char(SLIP_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
+       case when format(SLIP_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
+       case when format(SLIP_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
+       case when format(SLIP_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
+       case when format(SLIP_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
+       case when format(SLIP_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
+       case when format(SLIP_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
+       case when format(SLIP_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
+       case when format(SLIP_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
+        case when format(SLIP_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
+       case when format(SLIP_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
+       case when format(SLIP_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
+       case when format(SLIP_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
+        case when format(SLIP_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
+       case when format(SLIP_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
+       case when format(SLIP_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
+       case when format(SLIP_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
+        case when format(SLIP_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
+       case when format(SLIP_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
+       case when format(SLIP_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
+       case when format(SLIP_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
+        case when format(SLIP_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
+       case when format(SLIP_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
+       case when format(SLIP_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
+       case when format(SLIP_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
+        case when format(SLIP_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
+       case when format(SLIP_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
+       case when format(SLIP_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
+       case when format(SLIP_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
+        case when format(SLIP_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
+       case when format(SLIP_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
+       case when format(SLIP_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
 
 from production_income s
 inner join  mps_header r
@@ -1415,8 +1420,8 @@ group by label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'),
-       to_char(SLIP_DATE,'DD')
+       format(SLIP_DATE,'MONTH'),
+       format(SLIP_DATE,'DD')
     
   
 
@@ -1435,45 +1440,45 @@ select label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(APPROVAL_DATE,'MONTH'), 
+       format(APPROVAL_DATE,'MONTH'), 
       'ACTUAL',
       sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ),
-       case when to_char(APPROVAL_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
-       case when to_char(APPROVAL_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
-       case when to_char(APPROVAL_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
-       case when to_char(APPROVAL_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
-       case when to_char(APPROVAL_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
-       case when to_char(APPROVAL_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
-       case when to_char(APPROVAL_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
-       case when to_char(APPROVAL_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
-        case when to_char(APPROVAL_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
-       case when to_char(APPROVAL_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
-       case when to_char(APPROVAL_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
-       case when to_char(APPROVAL_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
-        case when to_char(APPROVAL_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
-       case when to_char(APPROVAL_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
-       case when to_char(APPROVAL_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
-       case when to_char(APPROVAL_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
-        case when to_char(APPROVAL_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
-       case when to_char(APPROVAL_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
-       case when to_char(APPROVAL_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
-       case when to_char(APPROVAL_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
-        case when to_char(APPROVAL_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
-       case when to_char(APPROVAL_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
-       case when to_char(APPROVAL_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
+       case when format(APPROVAL_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
+       case when format(APPROVAL_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
+       case when format(APPROVAL_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
+       case when format(APPROVAL_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
+       case when format(APPROVAL_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
+       case when format(APPROVAL_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
+       case when format(APPROVAL_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
+       case when format(APPROVAL_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
+        case when format(APPROVAL_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
+       case when format(APPROVAL_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
+       case when format(APPROVAL_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
+       case when format(APPROVAL_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
+       case when format(APPROVAL_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
+       case when format(APPROVAL_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
+       case when format(APPROVAL_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
+       case when format(APPROVAL_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
+       case when format(APPROVAL_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
+       case when format(APPROVAL_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
+       case when format(APPROVAL_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
+       case when format(APPROVAL_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
+        case when format(APPROVAL_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
+       case when format(APPROVAL_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
+       case when format(APPROVAL_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
+       case when format(APPROVAL_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
+        case when format(APPROVAL_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
+       case when format(APPROVAL_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
+       case when format(APPROVAL_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
+       case when format(APPROVAL_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
+        case when format(APPROVAL_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
+       case when format(APPROVAL_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
+       case when format(APPROVAL_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
 from production_income s
 inner join  mps_header r
 on s.wo_no = r.work_order
 
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER' 
+--where  format(MPS_date,'MONTH') = 'SEPTEMBER' 
 
 group by label_type,
        s.Wo_no,
@@ -1486,8 +1491,8 @@ group by label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(APPROVAL_DATE,'MONTH'),
-       to_char(APPROVAL_DATE,'DD')
+       format(APPROVAL_DATE,'MONTH'),
+       format(APPROVAL_DATE,'DD')
 
 ) x
 inner join (select item_no as item_no_1,second_machine from ztb_item_pck) b 
@@ -1507,17 +1512,22 @@ group by label_type,
        Bulan, 
        Status,
        b.second_machine
-order by Label_type,x.Work_order,STAT;
+--order by Label_type,x.Work_order,STAT;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_COMPARISON3" ("LABEL_TYPE", "GROUPINGLABEL", "WORK_ORDER", "ITEM_NO", "ITEM_NAME", "DATE_CODE", "PACKAGING_TYPE", "BATERY_TYPE", "GRADE", "CR_DATE", "OPERATEION_TIME", "QTY", "BULAN", "TOTAL", "STAT", "SATU", "DUA", "TIGA", "EMPAT", "LIMA", "ENAM", "TUJUH", "DELAPAN", "SEMBILAN", "SEPULUH", "SEBELAS", "DUABELAS", "TIGABELAS", "EMPATBELAS", "LIMABELAS", "ENAMBELAS", "TUJUHBELAS", "DELAPANBELAS", "SEMBILANBELAS", "DUAPULUH", "DUAPULUHSATU", "DUAPULUHDUA", "DUAPULUHTIGA", "DUAPULUHEMPAT", "DUAPULUHLIMA", "DUAPULUHENAM", "DUAPULUHTUJUH", "DUAPULUHDELAPAN", "DUAPULUHSEMBILAN", "TIGAPULUH", "TIGAPULUHSATU") AS 
-  select "LABEL_TYPE","GROUPINGLABEL","WORK_ORDER","ITEM_NO","ITEM_NAME","DATE_CODE","PACKAGING_TYPE","BATERY_TYPE","GRADE","CR_DATE","OPERATEION_TIME","QTY","BULAN","TOTAL","STAT","SATU","DUA","TIGA","EMPAT","LIMA","ENAM","TUJUH","DELAPAN","SEMBILAN","SEPULUH","SEBELAS","DUABELAS","TIGABELAS","EMPATBELAS","LIMABELAS","ENAMBELAS","TUJUHBELAS","DELAPANBELAS","SEMBILANBELAS","DUAPULUH","DUAPULUHSATU","DUAPULUHDUA","DUAPULUHTIGA","DUAPULUHEMPAT","DUAPULUHLIMA","DUAPULUHENAM","DUAPULUHTUJUH","DUAPULUHDELAPAN","DUAPULUHSEMBILAN","TIGAPULUH","TIGAPULUHSATU" from zvw_comparison a;
- 
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FG_INTRANSIT" ("ITEM_NO", "QTY", "DO_DATE", "BL_DATE") AS 
+
+ 
+ 
+ 
+ --CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_COMPARISON_LABEL" ("BATERY_TYPE", "BULAN", "HARI", "STAT", "PLN", "OUTPUT", "ACUMM") AS 
+ --CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_COMPARISON_SUMMARY" ("LABEL_TYPE", "BATERY_TYPE", "BULAN", "HARI", "STAT", "PLN", "OUTPUT", "ACUMM") AS 
+-- CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_COMPARISON2" ("LABEL_TYPE", "GROUPINGLABEL", "WORK_ORDER", "ITEM_NO", "ITEM_NAME", "DATE_CODE", "PACKAGING_TYPE", "BATERY_TYPE", "GRADE", "CR_DATE", "OPERATEION_TIME", "QTY", "BULAN", "TOTAL", "STAT", "SATU", "DUA", "TIGA", "EMPAT", "LIMA", "ENAM", "TUJUH", "DELAPAN", "SEMBILAN", "SEPULUH", "SEBELAS", "DUABELAS", "TIGABELAS", "EMPATBELAS", "LIMABELAS", "ENAMBELAS", "TUJUHBELAS", "DELAPANBELAS", "SEMBILANBELAS", "DUAPULUH", "DUAPULUHSATU", "DUAPULUHDUA", "DUAPULUHTIGA", "DUAPULUHEMPAT", "DUAPULUHLIMA", "DUAPULUHENAM", "DUAPULUHTUJUH", "DUAPULUHDELAPAN", "DUAPULUHSEMBILAN", "TIGAPULUH", "TIGAPULUHSATU") AS 
+ --  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FG_INTRANSIT" ("ITEM_NO", "QTY", "DO_DATE", "BL_DATE") AS 
+  create view ZVW_FG_INTRANSIT as
   select dod.item_no,   dod.qty qty  ,
-        to_char(doh.do_date,'dd/mm/yyyy') do_date,   
-          to_char(doh.bl_date,'dd/mm/yyyy') bl_date
+        format(doh.do_date,'dd/mm/yyyy') do_date,   
+          format(doh.bl_date,'dd/mm/yyyy') bl_date
          from do_header doh,   
               company  c,    
               currency cu,     
@@ -1529,26 +1539,27 @@ order by Label_type,x.Work_order,STAT;
                         ( select i.item_no, i.description, i.item, u.unit    
                           from   item i,    
                                  unit u    
-                          where  i.uom_q = u.unit_code (+)    
+                          where  i.uom_q = u.unit_code     
                          ) itm    
                 where   d.answer_no1  = idc.answer_no    
-                  and   to_char(idc.ex_factory,'yyyymm')  =   to_char(ac.ac_month,'yyyymm')    
-                  and   d.item_no   =   itm.item_no (+)    
+                  and   format(idc.ex_factory,'yyyymm')  =   format(ac.ac_month,'yyyymm')    
+                  and   d.item_no   =   itm.item_no     
               ) dod    
          where doh.do_no        =   dod.do_no    
-           and doh.customer_code =  c.company_code (+)    
-           and doh.curr_code     =  cu.curr_code (+)    
+           and doh.customer_code =  c.company_code     
+           and doh.curr_code     =  cu.curr_code     
 
-           and to_char(doh.do_date,'yyyymm') <>   to_char(doh.bl_date,'yyyymm')    
-         order by doh.customer_code, doh.do_date, doh.do_no,dod.line_no ;
- 
+           and format(doh.do_date,'yyyymm') <>   format(doh.bl_date,'yyyymm')    
+        -- order by doh.customer_code, doh.do_date, doh.do_no,dod.line_no 
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FG_INVENTORY" ("CUSTOMER", "INVENTORYBULANLALU", "AMOUNTINVENTORYBULANLALU", "INVENTORYBULANINI", "AMOUNTINVENTORYBULANINI") AS 
+         
+
+  create view ZVW_FG_INVENTORY as 
   select i.item_remark1 as Customer,  
-       sum(w.last_inventory  + nvl(iz.qty,0)) as InventoryBulanLalu,
-       sum((w.last_inventory + nvl(iz.qty,0)) * i.standard_price)as  AmountInventoryBulanLalu,
-       sum(w.this_inventory + nvl(vv.this_inventory,0) )as InventoryBulanIni,
-        sum((w.this_inventory + nvl(vv.this_inventory,0)) * i.standard_price) as AmountInventoryBulanIni
+       sum(w.last_inventory  + ISNULL(iz.qty,0)) as InventoryBulanLalu,
+       sum((w.last_inventory + ISNULL(iz.qty,0)) * i.standard_price)as  AmountInventoryBulanLalu,
+       sum(w.this_inventory + ISNULL(vv.this_inventory,0) )as InventoryBulanIni,
+        sum((w.this_inventory + ISNULL(vv.this_inventory,0)) * i.standard_price) as AmountInventoryBulanIni
 
 from whinventory w
 inner join item i
@@ -1562,7 +1573,8 @@ where item_flag = 1 --and item_remark1 = '03. Domestic B to B'
 group by item_remark1;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FINISHING" ("LABEL_TYPE", "WORK_ORDER", "ITEM_NO", "ITEM_NAME", "DATE_CODE", "PACKAGING_TYPE", "BATERY_TYPE", "GRADE", "CR_DATE", "OPERATEION_TIME", "QTY", "BULAN", "TOTAL", "STAT", "SATU", "DUA", "TIGA", "EMPAT", "LIMA", "ENAM", "TUJUH", "DELAPAN", "SEMBILAN", "SEPULUH", "SEBELAS", "DUABELAS", "TIGABELAS", "EMPATBELAS", "LIMABELAS", "ENAMBELAS", "TUJUHBELAS", "DELAPANBELAS", "SEMBILANBELAS", "DUAPULUH", "DUAPULUHSATU", "DUAPULUHDUA", "DUAPULUHTIGA", "DUAPULUHEMPAT", "DUAPULUHLIMA", "DUAPULUHENAM", "DUAPULUHTUJUH", "DUAPULUHDELAPAN", "DUAPULUHSEMBILAN", "TIGAPULUH", "TIGAPULUHSATU") AS 
+  --CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FINISHING" ("LABEL_TYPE", "WORK_ORDER", "ITEM_NO", "ITEM_NAME", "DATE_CODE", "PACKAGING_TYPE", "BATERY_TYPE", "GRADE", "CR_DATE", "OPERATEION_TIME", "QTY", "BULAN", "TOTAL", "STAT", "SATU", "DUA", "TIGA", "EMPAT", "LIMA", "ENAM", "TUJUH", "DELAPAN", "SEMBILAN", "SEPULUH", "SEBELAS", "DUABELAS", "TIGABELAS", "EMPATBELAS", "LIMABELAS", "ENAMBELAS", "TUJUHBELAS", "DELAPANBELAS", "SEMBILANBELAS", "DUAPULUH", "DUAPULUHSATU", "DUAPULUHDUA", "DUAPULUHTIGA", "DUAPULUHEMPAT", "DUAPULUHLIMA", "DUAPULUHENAM", "DUAPULUHTUJUH", "DUAPULUHDELAPAN", "DUAPULUHSEMBILAN", "TIGAPULUH", "TIGAPULUHSATU") AS 
+create view ZVW_FINISHING as
   SELECT label_type,
        x.work_order, 
        item_no,
@@ -1577,37 +1589,37 @@ group by item_remark1;
        Bulan, 
         sum(TOTAL) as Total,
        case Status when 'PLAN' Then 'A' When 'OUTPUT' Then  'C' When 'ACTUAL' Then 'B' END as STAT,
-       nvl(Sum(satu),0) as Satu,
-       nvl(Sum(Dua),0) as dua,
-       nvl(sum(tiga),0) as Tiga,
-       nvl(sum(empat),0) as empat,
-       nvl(sum(lima),0) as lima,
-       nvl(sum(enam),0) as enam,
-       nvl(sum(tujuh),0) as tujuh,
-       nvl(sum(delapan),0) as delapan,
-       nvl(sum(sembilan),0) as sembilan,
-       nvl(sum(sepuluh),0) as sepuluh,
-       nvl(sum(sebelas),0) as sebelas,
-       nvl(sum(duabelas),0) as duabelas,
-       nvl(sum(tigabelas),0) as tigabelas,
-       nvl(sum(empatbelas),0) as empatbelas,
-       nvl(sum(limabelas),0) as limabelas,
-       nvl(sum(enambelas),0) as enambelas,
-       nvl(sum(TujuhBelas),0) as tujuhbelas,
-       nvl(sum(delapanbelas),0) as delapanbelas,
-       nvl(sum(sembilanbelas),0) as sembilanbelas,
-       nvl(sum(duapuluh),0) as duapuluh,
-       nvl(sum(duapuluhsatu),0) as duapuluhsatu,
-       nvl(sum(DuaPuluhDua),0)  as DuaPuluhDua,
-       nvl(sum(DuaPuluhTiga),0)   as DuaPuluhTiga,
-       nvl(sum(DuaPuluhEmpat) ,0)  as DuaPuluhEmpat,
-       nvl(sum(DuaPuluhLima),0)  as DuaPuluhLima,
-       nvl(sum(DuaPuluhEnam),0)   as DuaPuluhEnam,
-       nvl(sum(DuaPuluhTujuh),0)  as DuaPuluhTujuh,
-       nvl(sum(DuaPuluhDelapan),0)   as DuaPuluhDelapan,
-        nvl(sum(DuaPuluhSembilan),0)   as DuaPuluhSembilan,
-        nvl(sum(TigaPuluh),0)  as TigaPuluh,
-       nvl(sum(TigaPuluhSatu),0)   as TigaPuluhSatu
+       ISNULL(Sum(satu),0) as Satu,
+       ISNULL(Sum(Dua),0) as dua,
+       ISNULL(sum(tiga),0) as Tiga,
+       ISNULL(sum(empat),0) as empat,
+       ISNULL(sum(lima),0) as lima,
+       ISNULL(sum(enam),0) as enam,
+       ISNULL(sum(tujuh),0) as tujuh,
+       ISNULL(sum(delapan),0) as delapan,
+       ISNULL(sum(sembilan),0) as sembilan,
+       ISNULL(sum(sepuluh),0) as sepuluh,
+       ISNULL(sum(sebelas),0) as sebelas,
+       ISNULL(sum(duabelas),0) as duabelas,
+       ISNULL(sum(tigabelas),0) as tigabelas,
+       ISNULL(sum(empatbelas),0) as empatbelas,
+       ISNULL(sum(limabelas),0) as limabelas,
+       ISNULL(sum(enambelas),0) as enambelas,
+       ISNULL(sum(TujuhBelas),0) as tujuhbelas,
+       ISNULL(sum(delapanbelas),0) as delapanbelas,
+       ISNULL(sum(sembilanbelas),0) as sembilanbelas,
+       ISNULL(sum(duapuluh),0) as duapuluh,
+       ISNULL(sum(duapuluhsatu),0) as duapuluhsatu,
+       ISNULL(sum(DuaPuluhDua),0)  as DuaPuluhDua,
+       ISNULL(sum(DuaPuluhTiga),0)   as DuaPuluhTiga,
+       ISNULL(sum(DuaPuluhEmpat) ,0)  as DuaPuluhEmpat,
+       ISNULL(sum(DuaPuluhLima),0)  as DuaPuluhLima,
+       ISNULL(sum(DuaPuluhEnam),0)   as DuaPuluhEnam,
+       ISNULL(sum(DuaPuluhTujuh),0)  as DuaPuluhTujuh,
+       ISNULL(sum(DuaPuluhDelapan),0)   as DuaPuluhDelapan,
+        ISNULL(sum(DuaPuluhSembilan),0)   as DuaPuluhSembilan,
+        ISNULL(sum(TigaPuluh),0)  as TigaPuluh,
+       ISNULL(sum(TigaPuluhSatu),0)   as TigaPuluhSatu
    FROM (
 select label_type,
        work_order, 
@@ -1620,44 +1632,44 @@ select label_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH') as Bulan, 
+       format(MPS_date,'MONTH') as Bulan, 
        'PLAN' as Status,
        sum(s.mps_qty) as Total,
-       case when to_char(MPS_date,'DD') = 1 then sum(s.mps_qty) end  as Satu,
-       case when to_char(MPS_date,'DD') = 2 then sum(s.mps_qty) end as Dua,
-       case when to_char(MPS_date,'DD') = 3 then sum(s.mps_qty) end as Tiga,
-       case when to_char(MPS_date,'DD') = 4 then sum(s.mps_qty) end as empat,
-       case when to_char(MPS_date,'DD') = 5 then sum(s.mps_qty) end as Lima,
-       case when to_char(MPS_date,'DD') = 6 then sum(s.mps_qty) end as Enam,
-       case when to_char(MPS_date,'DD') = 7 then sum(s.mps_qty) end as Tujuh,
-       case when to_char(MPS_date,'DD') = 8 then sum(s.mps_qty) end as Delapan,
-        case when to_char(MPS_date,'DD') = 9 then sum(s.mps_qty) end as Sembilan,
-       case when to_char(MPS_date,'DD') = 10 then sum(s.mps_qty) end as sepuluh,
-       case when to_char(MPS_date,'DD') = 11 then sum(s.mps_qty) end as Sebelas,
-       case when to_char(MPS_date,'DD') = 12 then sum(s.mps_qty) end as DuaBelas,
-        case when to_char(MPS_date,'DD') = 13 then sum(s.mps_qty) end as TigaBelas,
-       case when to_char(MPS_date,'DD') = 14 then sum(s.mps_qty) end as EmpatBelas,
-       case when to_char(MPS_date,'DD') = 15 then sum(s.mps_qty) end as LimaBelas,
-       case when to_char(MPS_date,'DD') = 16 then sum(s.mps_qty) end as EnamBelas,
-        case when to_char(MPS_date,'DD') = 17 then sum(s.mps_qty) end as TujuhBelas,
-       case when to_char(MPS_date,'DD') = 18 then sum(s.mps_qty) end as DelapanBelas,
-       case when to_char(MPS_date,'DD') = 19 then sum(s.mps_qty) end as SembilanBelas,
-       case when to_char(MPS_date,'DD') = 20 then sum(s.mps_qty) end as DuaPuluh,
-        case when to_char(MPS_date,'DD') = 21 then sum(s.mps_qty) end as DuaPuluhSatu,
-       case when to_char(MPS_date,'DD') = 22 then sum(s.mps_qty) end as DuaPuluhDua,
-       case when to_char(MPS_date,'DD') = 23 then sum(s.mps_qty) end as DuaPuluhTiga,
-       case when to_char(MPS_date,'DD') = 24 then sum(s.mps_qty) end as DuaPuluhEmpat,
-        case when to_char(MPS_date,'DD') = 25 then sum(s.mps_qty) end as DuaPuluhLima,
-       case when to_char(MPS_date,'DD') = 26 then sum(s.mps_qty) end as DuaPuluhEnam,
-       case when to_char(MPS_date,'DD') = 27 then sum(s.mps_qty) end as DuaPuluhTujuh,
-       case when to_char(MPS_date,'DD') = 28 then sum(s.mps_qty) end as DuaPuluhDelapan,
-        case when to_char(MPS_date,'DD') = 29 then sum(s.mps_qty) end as DuaPuluhSembilan,
-       case when to_char(MPS_date,'DD') = 30 then sum(s.mps_qty) end as TigaPuluh,
-       case when to_char(MPS_date,'DD') = 31 then sum(s.mps_qty) end as TigaPuluhSatu
+       case when format(MPS_date,'DD') = 1 then sum(s.mps_qty) end  as Satu,
+       case when format(MPS_date,'DD') = 2 then sum(s.mps_qty) end as Dua,
+       case when format(MPS_date,'DD') = 3 then sum(s.mps_qty) end as Tiga,
+       case when format(MPS_date,'DD') = 4 then sum(s.mps_qty) end as empat,
+       case when format(MPS_date,'DD') = 5 then sum(s.mps_qty) end as Lima,
+       case when format(MPS_date,'DD') = 6 then sum(s.mps_qty) end as Enam,
+       case when format(MPS_date,'DD') = 7 then sum(s.mps_qty) end as Tujuh,
+       case when format(MPS_date,'DD') = 8 then sum(s.mps_qty) end as Delapan,
+        case when format(MPS_date,'DD') = 9 then sum(s.mps_qty) end as Sembilan,
+       case when format(MPS_date,'DD') = 10 then sum(s.mps_qty) end as sepuluh,
+       case when format(MPS_date,'DD') = 11 then sum(s.mps_qty) end as Sebelas,
+       case when format(MPS_date,'DD') = 12 then sum(s.mps_qty) end as DuaBelas,
+        case when format(MPS_date,'DD') = 13 then sum(s.mps_qty) end as TigaBelas,
+       case when format(MPS_date,'DD') = 14 then sum(s.mps_qty) end as EmpatBelas,
+       case when format(MPS_date,'DD') = 15 then sum(s.mps_qty) end as LimaBelas,
+       case when format(MPS_date,'DD') = 16 then sum(s.mps_qty) end as EnamBelas,
+        case when format(MPS_date,'DD') = 17 then sum(s.mps_qty) end as TujuhBelas,
+       case when format(MPS_date,'DD') = 18 then sum(s.mps_qty) end as DelapanBelas,
+       case when format(MPS_date,'DD') = 19 then sum(s.mps_qty) end as SembilanBelas,
+       case when format(MPS_date,'DD') = 20 then sum(s.mps_qty) end as DuaPuluh,
+        case when format(MPS_date,'DD') = 21 then sum(s.mps_qty) end as DuaPuluhSatu,
+       case when format(MPS_date,'DD') = 22 then sum(s.mps_qty) end as DuaPuluhDua,
+       case when format(MPS_date,'DD') = 23 then sum(s.mps_qty) end as DuaPuluhTiga,
+       case when format(MPS_date,'DD') = 24 then sum(s.mps_qty) end as DuaPuluhEmpat,
+        case when format(MPS_date,'DD') = 25 then sum(s.mps_qty) end as DuaPuluhLima,
+       case when format(MPS_date,'DD') = 26 then sum(s.mps_qty) end as DuaPuluhEnam,
+       case when format(MPS_date,'DD') = 27 then sum(s.mps_qty) end as DuaPuluhTujuh,
+       case when format(MPS_date,'DD') = 28 then sum(s.mps_qty) end as DuaPuluhDelapan,
+        case when format(MPS_date,'DD') = 29 then sum(s.mps_qty) end as DuaPuluhSembilan,
+       case when format(MPS_date,'DD') = 30 then sum(s.mps_qty) end as TigaPuluh,
+       case when format(MPS_date,'DD') = 31 then sum(s.mps_qty) end as TigaPuluhSatu
 from mps_header r
 inner join mps_details s 
 ON r.po_no = s.po_no and r.po_line_no = s.po_line_no
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER'
+--where  format(MPS_date,'MONTH') = 'SEPTEMBER'
 group by label_type,
        work_order, 
        item_no,
@@ -1669,8 +1681,8 @@ group by label_type,
        cr_date, 
        operateion_time ,
        r.qty,
-       to_char(MPS_date,'MONTH'),
-      to_char(MPS_date,'DD')
+       format(MPS_date,'MONTH'),
+      format(MPS_date,'DD')
       
 UNION ALL
           
@@ -1685,40 +1697,40 @@ select label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'), 
+       format(SLIP_DATE,'MONTH'), 
       'OUTPUT',
       sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ),
-       case when to_char(SLIP_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
-       case when to_char(SLIP_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
-       case when to_char(SLIP_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
-       case when to_char(SLIP_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
-       case when to_char(SLIP_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
-       case when to_char(SLIP_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
-       case when to_char(SLIP_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
-       case when to_char(SLIP_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
-        case when to_char(SLIP_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
-       case when to_char(SLIP_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
-       case when to_char(SLIP_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
-       case when to_char(SLIP_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
-        case when to_char(SLIP_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
-       case when to_char(SLIP_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
-       case when to_char(SLIP_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
-       case when to_char(SLIP_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
-        case when to_char(SLIP_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
-       case when to_char(SLIP_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
-       case when to_char(SLIP_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
-       case when to_char(SLIP_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
-        case when to_char(SLIP_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
-       case when to_char(SLIP_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
-       case when to_char(SLIP_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
-       case when to_char(SLIP_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
-        case when to_char(SLIP_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
-       case when to_char(SLIP_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
-       case when to_char(SLIP_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
-       case when to_char(SLIP_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
-        case when to_char(SLIP_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
-       case when to_char(SLIP_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
-       case when to_char(SLIP_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
+       case when format(SLIP_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
+       case when format(SLIP_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
+       case when format(SLIP_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
+       case when format(SLIP_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
+       case when format(SLIP_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
+       case when format(SLIP_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
+       case when format(SLIP_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
+       case when format(SLIP_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
+        case when format(SLIP_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
+       case when format(SLIP_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
+       case when format(SLIP_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
+       case when format(SLIP_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
+        case when format(SLIP_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
+       case when format(SLIP_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
+       case when format(SLIP_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
+       case when format(SLIP_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
+        case when format(SLIP_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
+       case when format(SLIP_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
+       case when format(SLIP_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
+       case when format(SLIP_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
+        case when format(SLIP_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
+       case when format(SLIP_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
+       case when format(SLIP_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
+       case when format(SLIP_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
+        case when format(SLIP_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
+       case when format(SLIP_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
+       case when format(SLIP_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
+       case when format(SLIP_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
+        case when format(SLIP_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
+       case when format(SLIP_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
+       case when format(SLIP_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
 
 from production_income s
 inner join  mps_header r
@@ -1735,8 +1747,8 @@ group by label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(SLIP_DATE,'MONTH'),
-       to_char(SLIP_DATE,'DD')
+       format(SLIP_DATE,'MONTH'),
+       format(SLIP_DATE,'DD')
     
   
 
@@ -1755,45 +1767,45 @@ select label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(APPROVAL_DATE,'MONTH'), 
+       format(APPROVAL_DATE,'MONTH'), 
       'ACTUAL',
       sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ),
-       case when to_char(APPROVAL_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
-       case when to_char(APPROVAL_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
-       case when to_char(APPROVAL_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
-       case when to_char(APPROVAL_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
-       case when to_char(APPROVAL_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
-       case when to_char(APPROVAL_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
-       case when to_char(APPROVAL_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
-       case when to_char(APPROVAL_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
-        case when to_char(APPROVAL_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
-       case when to_char(APPROVAL_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
-       case when to_char(APPROVAL_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
-       case when to_char(APPROVAL_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
-       case when to_char(APPROVAL_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
-        case when to_char(APPROVAL_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
-       case when to_char(APPROVAL_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
-       case when to_char(APPROVAL_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
-       case when to_char(APPROVAL_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
-        case when to_char(APPROVAL_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
-       case when to_char(APPROVAL_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
-       case when to_char(APPROVAL_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
-       case when to_char(APPROVAL_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
-        case when to_char(APPROVAL_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
-       case when to_char(APPROVAL_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
-       case when to_char(APPROVAL_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
+       case when format(APPROVAL_DATE,'DD') = 1 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end  as Satu,
+       case when format(APPROVAL_DATE,'DD') = 2 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Dua,
+       case when format(APPROVAL_DATE,'DD') = 3 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tiga,
+       case when format(APPROVAL_DATE,'DD') = 4 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as empat,
+       case when format(APPROVAL_DATE,'DD') = 5 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Lima,
+       case when format(APPROVAL_DATE,'DD') = 6 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Enam,
+       case when format(APPROVAL_DATE,'DD') = 7 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Tujuh,
+       case when format(APPROVAL_DATE,'DD') = 8 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Delapan,
+        case when format(APPROVAL_DATE,'DD') = 9 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sembilan,
+       case when format(APPROVAL_DATE,'DD') = 10 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as sepuluh,
+       case when format(APPROVAL_DATE,'DD') = 11 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as Sebelas,
+       case when format(APPROVAL_DATE,'DD') = 12 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaBelas,
+       case when format(APPROVAL_DATE,'DD') = 13 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaBelas,
+       case when format(APPROVAL_DATE,'DD') = 14 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EmpatBelas,
+       case when format(APPROVAL_DATE,'DD') = 15 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as LimaBelas,
+       case when format(APPROVAL_DATE,'DD') = 16 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as EnamBelas,
+       case when format(APPROVAL_DATE,'DD') = 17 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TujuhBelas,
+       case when format(APPROVAL_DATE,'DD') = 18 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DelapanBelas,
+       case when format(APPROVAL_DATE,'DD') = 19 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as SembilanBelas,
+       case when format(APPROVAL_DATE,'DD') = 20 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluh,
+        case when format(APPROVAL_DATE,'DD') = 21 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSatu,
+       case when format(APPROVAL_DATE,'DD') = 22 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDua,
+       case when format(APPROVAL_DATE,'DD') = 23 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTiga,
+       case when format(APPROVAL_DATE,'DD') = 24 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEmpat,
+        case when format(APPROVAL_DATE,'DD') = 25 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhLima,
+       case when format(APPROVAL_DATE,'DD') = 26 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhEnam,
+       case when format(APPROVAL_DATE,'DD') = 27 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhTujuh,
+       case when format(APPROVAL_DATE,'DD') = 28 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhDelapan,
+        case when format(APPROVAL_DATE,'DD') = 29 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as DuaPuluhSembilan,
+       case when format(APPROVAL_DATE,'DD') = 30 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluh,
+       case when format(APPROVAL_DATE,'DD') = 31 then sum(case when slip_type = 80 then s.SLIP_Quantity else s.SLIP_Quantity *-1 end ) end as TigaPuluhSatu
 from production_income s
 inner join  mps_header r
 on s.wo_no = r.work_order
 
---where  to_char(MPS_date,'MONTH') = 'SEPTEMBER' 
+--where  format(MPS_date,'MONTH') = 'SEPTEMBER' 
 
 group by label_type,
        s.Wo_no,
@@ -1806,8 +1818,8 @@ group by label_type,
       r.cr_date, 
       r.operateion_time ,
       r.qty,
-       to_char(APPROVAL_DATE,'MONTH'),
-       to_char(APPROVAL_DATE,'DD')
+       format(APPROVAL_DATE,'MONTH'),
+       format(APPROVAL_DATE,'DD')
 
 ) x
 where trim(bulan) = 'MAY' 
@@ -1824,14 +1836,14 @@ group by label_type,
        qty,
        Bulan, 
        Status
-order by Label_type,x.Work_order,STAT;
+--order by Label_type,x.Work_order,STAT;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FORECAST" ("PACKAGING_TYPE", "PO_NO", "PO_LINE_NO", "Original_PO_Line", "IN_MPS", "WORK_ORDER", "ITEM_NO", "ITEM_NAME", "DATE_CODE", "BATERY_TYPE", "STATUS", "CELL_GRADE", "REMARK", "QTY", "CR_DATE", "REQUEST_ETD", "CURRENCY", "PRICE", "SALES_PRICE", "KURAIRE") AS 
+ create view ZVW_FORECAST as 
   select   mps.packaging_type, 
          mps.po_no, 
          mps.po_line_no,
-         case when sd.in_mps is not null then mps.po_line_no else  nvl((SUBSTR(mps.po_line_no, 1, LENGTH(mps.po_line_no) - 1)) , mps.po_line_no) end as "Original_PO_Line",
+         case when sd.in_mps is not null then mps.po_line_no else  isnull((SUBSTRING(mps.po_line_no, 1, LEN(mps.po_line_no) - 1)) , mps.po_line_no) end as "Original_PO_Line",
          sd.in_mps ,
          mps.work_order,
          mps.item_no, 
@@ -1843,29 +1855,29 @@ order by Label_type,x.Work_order,STAT;
          mps.Remark,
          mps.Qty, 
          mps.cr_date ,
-         case when in_mps is not null then sd.ETD else (select so_details.ETD from so_details inner join so_header on so_details.so_no = so_header.so_no  
-                                                          where so_header.customer_po_no = mps.po_no and rownum = 1 and  so_details.line_no = nvl((SUBSTR(mps.po_line_no, 1, LENGTH(mps.po_line_no) - 1)) , mps.po_line_no) ) end  as Request_ETD,
+         case when in_mps is not null then sd.ETD else (select TOP 1 so_details.ETD from so_details inner join so_header on so_details.so_no = so_header.so_no  
+                                                          where so_header.customer_po_no = mps.po_no  and  so_details.line_no = isnull((SUBSTRING(mps.po_line_no, 1, LEN(mps.po_line_no) - 1)) , mps.po_line_no) ) end  as Request_ETD,
        
         
-         nvl(case sd.origin_code when 1 then 'USD' When 8 Then 'JPY' when 23 Then 'IDR' END,case (select sp_ref.curr_code from sp_ref where sp_ref.item_no = mps.item_no and rownum = 1) when 1 then 'USD' When 8 Then 'JPY' when 23 Then 'IDR' END) as Currency , 
-         nvl(sd.u_price,(select u_price from sp_ref where sp_ref.item_no = mps.item_no and rownum = 1)) as Price,
-         mps.qty * nvl(sd.u_price,(select u_price from sp_ref where sp_ref.item_no = mps.item_no and rownum = 1)) as sales_Price,
-         NVL(t.qty,0) as kuraire
+         isnull(case sd.origin_code when 1 then 'USD' When 8 Then 'JPY' when 23 Then 'IDR' END,case (select top 1 sp_ref.curr_code from sp_ref where sp_ref.item_no = mps.item_no ) when 1 then 'USD' When 8 Then 'JPY' when 23 Then 'IDR' END) as Currency , 
+         isnull(sd.u_price,(select top 1 u_price from sp_ref where sp_ref.item_no = mps.item_no )) as Price,
+         mps.qty * isnull(sd.u_price,(select top 1 u_price from sp_ref where sp_ref.item_no = mps.item_no )) as sales_Price,
+         isnull(t.qty,0) as kuraire
        
 
 
 from mps_header MPS
-left outer join (select sum(case when slip_type <> 80  then slip_quantity * -1 else slip_quantity end) as qty, item_no,wo_no from transaction group by item_no,wo_no )t on t.item_no = mps.item_no and t.wo_no = mps.work_order
+left outer join (select sum(case when slip_type <> 80  then slip_quantity * -1 else slip_quantity end) as qty, item_no,wo_no from "transaction" group by item_no,wo_no )t on t.item_no = mps.item_no and t.wo_no = mps.work_order
 
 left outer join (select  so_details.so_no as SO_no,so_details.item_no,so_details.u_price,so_header.curr_code as origin_code,so_header.customer_po_no,so_details.ETD,  so_details.line_no  as Line_no, so_header.customer_code,so_details.in_mps from SO_details inner join so_header on so_details.so_no = so_header.so_no )sd 
    ON mps.po_no = sd.customer_po_no and mps.po_line_no = sd.line_no and mps.item_no = sd.item_no  
 
 
-order by mps.packaging_type,status, po_no,mps.po_line_no;
+--order by mps.packaging_type,status, po_no,mps.po_line_no;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FORECAST_0" ("ITEM_NO", "ITEM_NAME", "BATERY_TYPE", "CELL_GRADE", "PO_NO", "PO_LINE_NO", "WORK_ORDER", "CONSIGNEE", "PACKAGING_TYPE", "DATE_CODE", "CR_DATE", "REQUESTED_ETD", "STATUS", "LABEL_ITEM_NUMBER", "LABEL_NAME", "QTY", "MAN_POWER", "OPERATEION_TIME", "LABEL_TYPE", "CAPACITY", "UPLOAD_DATE", "REMARK", "PO_NO_1", "PO_LINE_NO_1", "QUANTITY", "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER", "QTY_PRODUKSI", "QTY_IN_TRANSIT", "QTY_SALES", "U_PRICE", "TERM") AS 
-  select r.* ,l.*,nvl(cc.qty_produksi,0) qty_produksi,nvl(dd.qty_in_transit,0) qty_in_transit,nvl(ee.qty_sales,0) qty_sales,ff.u_price, SUBSTR(cc.tterm ,1,3) as term
+  create view ZVW_FORECAST_0 as
+  select r.* ,l.*,isnull(cc.qty_produksi,0) qty_produksi,isnull(dd.qty_in_transit,0) qty_in_transit,isnull(ee.qty_sales,0) qty_sales,ff.u_price, SUBSTRING(ccx.tterm ,1,3) as term
 from mps_header r
 left outer join (
 select po_no as po_no_1,
@@ -1902,9 +1914,9 @@ select po_no,
        case when mps_date = '12' Then qty else 0 end December
 from       
   (
-    select sum(mps_qty) qty,po_no,po_line_no, to_char(mps_date,'MM') mps_date
+    select sum(mps_qty) qty,po_no,po_line_no, format(mps_date,'MM') mps_date
     from mps_details
-    group by po_no,po_line_no, to_char(mps_date,'MM') 
+    group by po_no,po_line_no, format(mps_date,'MM') 
   )bb
            
 )aa group by po_no,
@@ -1951,13 +1963,18 @@ left outer join
 on r.item_no = b.item_no 
 left outer join company c
 on b.customer_code = c.company_code 
-left outer join contract cc
-on b.customer_code = cc.company_code and cc.contract_seq = 1;
+left outer join contract ccx
+on b.customer_code = ccx.company_code and ccx.contract_seq = 1;
+
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FORECAST_01" ("NOMOR", "PACK_TYPE", "PO_NO", "ITEM_NO", "BRAND", "BATERY_TYPE", "CELL_GRADE", "ITEM_REMARK1", "REMARK", "DESTINATION", "QTY_ORDERED", "CR_DATE", "CURRENCY", "U_PRICE", "SALES_AMOUNT", "CR_MONTH", "SALES_MONTH", "TERM", "STANDARD_PRICE", "STOCK_WAREHOUSE", "STOCK_IN_TRANSIT", "JANUARY", "JANUARY_AMOUNT", "FEBRUARY", "FEBRUARY_AMOUNT", "MARCH", "MARCH_AMOUNT", "APRIL", "APRIL_AMOUNT", "MAY", "MAY_AMOUNT", "JUNE", "JUNE_AMOUNT", "JULY", "JULY_AMOUNT", "AUGUST", "AUGUST_AMOUNT", "SEPTEMBER", "SEPTEMBER_AMOUNT", "OCTOBER", "OCTOBER_AMOUNT", "NOVEMBER", "NOVEMBER_AMOUNT", "DECEMBER", "DECEMBER_AMOUNT") AS 
-  select rownum as nomor,
-       i.groups_pck pack_type,  
+  
+
+ create  view ZVW_FORECAST_01 as
+  select ROW_NUMBER() OVER (
+	ORDER BY z.item_no
+   ) as nomor,
+       i.groups_pck pack_type,
        z.po_no,
        z.item_no,
        z.item_name Brand,
@@ -1969,20 +1986,21 @@ on b.customer_code = cc.company_code and cc.contract_seq = 1;
        z.qty Qty_Ordered, 
        z.cr_date,
        'US$' Currency, 
-       z.u_price, 
+       z.u_price,
        z.qty * z.u_price Sales_Amount,
-       to_char ( z.cr_date, 'MM') Cr_Month,
-      case when  nvl(z.qty_produksi,0) - (nvl(qty_in_transit,0) + nvl(qty_sales,0)) > 0 and z.cr_date < (SELECT LAST_DAY(SYSDATE) FROM dual)  then  (select distinct substr(this_month,5,2) from whinventory) else
-        case when z.remark like '%AMAZ%' and cast(to_char ( z.cr_date, 'dd') as integer) > 16  then to_char ( z.cr_date + 30, 'MM') else
-          case when cast(to_char ( z.cr_date, 'dd') as integer) > 27 or nvl(qty_in_transit,0) > 0 then to_char ( z.cr_date + 30, 'MM') --else  
-             else to_char ( z.cr_date, 'MM') 
+       format ( z.cr_date, 'MM') Cr_Month,
+      case when  isnull(z.qty_produksi,0) - (isnull(qty_in_transit,0) + isnull(qty_sales,0)) > 0 and z.cr_date < (SELECT EOMONTH(getdate()) )  then  (select distinct SUBSTRING(cast(this_month as varchar(10)),5,2) from whinventory) else
+        case when z.remark like '%AMAZ%' and cast(format ( z.cr_date, 'dd') as integer) > 16  then format ( dateadd(d,30,z.cr_date ), 'MM') else
+          case when cast(format ( z.cr_date, 'dd') as integer) > 27 or isnull(qty_in_transit,0) > 0 then format ( dateadd(d,30,z.cr_date ), 'MM') --else  
+             else format ( z.cr_date, 'MM') 
           end 
         end 
-       end  sales_month,
+       end  as
+       sales_month,
        z.term,
        ii.standard_price,
-       nvl(z.qty_produksi,0) - (nvl(qty_in_transit,0) + nvl(qty_sales,0)) stock_warehouse,
-       nvl(qty_in_transit,0) stock_in_transit,
+       isnull(z.qty_produksi,0) - (isnull(qty_in_transit,0) + isnull(qty_sales,0)) stock_warehouse,
+       isnull(qty_in_transit,0) stock_in_transit,
        z.january,
        z.january * z.u_price January_Amount,
        z.february,
@@ -2014,7 +2032,7 @@ left outer join item ii
 on z.item_no = ii.item_no;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FORECAST_1" ("PACKAGING_TYPE", "WORK_ORDER", "PO_NO", "PO_LINE_NO", "ITEM_NO", "BRAND", "DATE_CODE", "STATUS", "BATERY_TYPE", "CELL_GRADE", "CUSTOMER_GROUP", "QTY_ORDER", "CR_DATE", "U_PRICE", "CURR", "CUSTOMER_CODE", "SALES_AMOUNT", "TERM", "COUNTRY_CODE", "COMPANY") AS 
+create view ZVW_FORECAST_1 as
   select packaging_type,
        work_order,
        po_no,
@@ -2032,7 +2050,7 @@ on z.item_no = ii.item_no;
        case when b.curr_code = 23 then 'IDR' else case when b.curr_code = 1  then  'USD' end end as Curr,
        b.customer_code, 
        qty * b.u_price as Sales_Amount,
-       SUBSTR(cc.tterm ,1,3) as term,
+       SUBSTRING(cc.tterm ,1,3) as term,
        c.country_code,
        c.company
 --select a.work_order
@@ -2045,16 +2063,15 @@ on b.customer_code = c.company_code
 left outer join contract cc
 on b.customer_code = cc.company_code and cc.contract_seq = 1
  
-order by work_order,po_no, item_no;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FORECAST_2" ("PACKAGING_TYPE", "WORK_ORDER", "PO_NO", "PO_LINE_NO", "ITEM_NO", "BRAND", "DATE_CODE", "STATUS", "BATERY_TYPE", "CELL_GRADE", "CUSTOMER_GROUP", "QTY_ORDER", "CR_DATE", "U_PRICE", "CURR", "CUSTOMER_CODE", "SALES_AMOUNT", "TERM", "COUNTRY_CODE", "COMPANY", "QTY_PRODUKSI", "WO_NO", "COMMIT_DATE", "QTY", "WORK_NO", "CUSTOMER_PO_NO", "CUSTOMER_PO_LINE_NO", "INV_NO", "INV_LINE_NO", "BL_DATE", "QTY_FORECAST", "QTY_GUDANG", "QTY_IN_TRANSIT", "ACTUAL_SALES", "SALES_MONTH") AS 
+create view ZVW_FORECAST_2 as 
   select z.*,pi.*,
 cc.commit_Date,cc.qty,cc.work_no, cc.customer_po_no, cc.customer_po_line_no,cc.inv_no,cc.inv_line_no,
 dh.bl_date,
       
-      case when nvl(z.qty_order,0) - nvl(qty_produksi,0) < 0 then 0 else nvl(z.qty_order,0) - nvl(qty_produksi,0) end as Qty_Forecast,
-      case when bl_date is null and commit_date is null and qty_produksi is not null then nvl(cc.qty,qty_produksi) else 0 end as Qty_Gudang,
+      case when isnull(z.qty_order,0) - isnull(qty_produksi,0) < 0 then 0 else isnull(z.qty_order,0) - isnull(qty_produksi,0) end as Qty_Forecast,
+      case when bl_date is null and commit_date is null and qty_produksi is not null then isnull(cc.qty,qty_produksi) else 0 end as Qty_Gudang,
       case when bl_date > '31-DEC-2017' and commit_date <= '31-DEC-2017' and qty_produksi is not null then cc.qty else 0 end as Qty_in_transit,
       case when bl_date is not null and commit_date is not null and qty_produksi is not null then cc.qty else 0 end as Actual_sales,
       case when bl_date is not null and commit_date is not null and qty_produksi is not null then dh.bl_date end as sales_month
@@ -2072,76 +2089,75 @@ inner join  answer aa on aa.answer_no = i.answer_no where i.ex_factory <= '31-DE
 )cc on cc.work_no = z.work_order
 left outer join (select bl_date, inv_no as inv_no_1 from do_header)dh on cc.inv_no = dh.inv_no_1
 where item_no <> '645845'  --and  work_order like '0006966-LR03C1-22'
-order by z.packaging_type, z.work_order;
- 
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FORECAST_3" ("PACKAGING_TYPE", "WORK_ORDER", "PO_NO", "PO_LINE_NO", "ITEM_NO", "BRAND", "DATE_CODE", "STATUS", "BATERY_TYPE", "CELL_GRADE", "CUSTOMER_GROUP", "QTY_ORDER", "CR_DATE", "U_PRICE", "CURR", "CUSTOMER_CODE", "SALES_AMOUNT", "TERM", "COUNTRY_CODE", "COMPANY", "QTY_PRODUKSI", "WO_NO", "COMMIT_DATE", "QTY", "WORK_NO", "CUSTOMER_PO_NO", "CUSTOMER_PO_LINE_NO", "INV_NO", "INV_LINE_NO", "BL_DATE", "QTY_FORECAST", "QTY_GUDANG", "QTY_IN_TRANSIT", "ACTUAL_SALES", "SALES_MONTH", "STANDARD_PRICE", "QTY_FORECAST_1", "SALES_DATE", "FORECAST_DATE", "JANUARY_QTY", "JANUARY_AMOUNT", "FEBRUARY_QTY", "FEBRUARY_AMOUNT", "MARCH_QTY", "MARCH_AMOUNT", "APRIL_QTY", "APRIL_AMOUNT", "MAY_QTY", "MAY_AMOUNT", "JUNE_QTY", "JUNE_AMOUNT", "JULY_QTY", "JULY_AMOUNT", "AUGUST_QTY", "AUGUST_AMOUNT", "SEPTEMBER_QTY", "SEPTEMBER_AMOUNT", "OCTOBER_QTY", "OCTOBERAMOUNT", "NOVEMBER_QTY", "NOVEMBER_AMOUNT", "DECEMBER_QTY", "DECEMBER_AMOUNT") AS 
+
+create view ZVW_FORECAST_3 as 
   select  distinct zvw_forecast_2.*,d.standard_price,
       (qty_forecast / jumlah) + qty_gudang as qty_forecast_1,
-      to_char(Bl_date,'MM') as sales_date, 
-      to_char(cr_Date,'MM') as Forecast_date,
-    nvl(case when to_char(Bl_date,'MM') = '01' then nvl(actual_sales,0) end,0)  + 
+      format(Bl_date,'MM') as sales_date, 
+      format(cr_Date,'MM') as Forecast_date,
+    isnull(case when format(Bl_date,'MM') = '01' then isnull(actual_sales,0) end,0)  + 
         case when mps_Date = '01' then (mps_qty / jumlah)  + qty_in_transit end  as January_Qty,
-        (nvl(case when to_char(Bl_date,'MM') = '01' then nvl(actual_sales,0) end,0)  + 
+        (isnull(case when format(Bl_date,'MM') = '01' then isnull(actual_sales,0) end,0)  + 
         case when mps_Date = '01' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as January_Amount,
-        nvl(case when to_char(Bl_date,'MM') = '02' then nvl(actual_sales,0) end,0)  + 
+        isnull(case when format(Bl_date,'MM') = '02' then isnull(actual_sales,0) end,0)  + 
         case when mps_Date = '02' then (mps_qty / jumlah)  + qty_in_transit end as February_Qty,
-         (nvl(case when to_char(Bl_date,'MM') = '02' then nvl(actual_sales,0) end,0)  + 
+         (isnull(case when format(Bl_date,'MM') = '02' then isnull(actual_sales,0) end,0)  + 
         case when mps_Date = '02' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as February_Amount, 
-        nvl(case when to_char(Bl_date,'MM') = '03' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '03' then (mps_qty / jumlah)  + qty_in_transit end as March_Qty,
-       (nvl(case when to_char(Bl_date,'MM') = '03' then nvl(actual_sales,0) end,0)  +  
-        case when to_char(cr_Date,'MM') = '03' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as March_Amount, 
-        nvl(case when to_char(Bl_date,'MM') = '04' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '04' then (mps_qty / jumlah)  + qty_in_transit end as April_Qty,
-     (nvl(case when to_char(Bl_date,'MM') = '04' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '04' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as April_Amount, 
-       nvl( case when to_char(Bl_date,'MM') = '05' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '05' then (mps_qty / jumlah)  + qty_in_transit end as May_Qty,
-        (nvl(case when to_char(Bl_date,'MM') = '05' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '05' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as May_Amount, 
-        nvl(case when to_char(Bl_date,'MM') = '06' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '06' then (mps_qty / jumlah)  + qty_in_transit end as June_Qty,
-     (nvl(case when to_char(Bl_date,'MM') = '06' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '06' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as June_Amount, 
-        nvl(case when to_char(Bl_date,'MM') = '07' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '07' then (mps_qty / jumlah)  + qty_in_transit end as July_Qty,
-        (nvl(case when to_char(Bl_date,'MM') = '07' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '07' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as July_Amount, 
-        nvl(case when to_char(Bl_date,'MM') = '08' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '08' then (mps_qty / jumlah)  + qty_in_transit end as August_Qty,
-        (nvl(case when to_char(Bl_date,'MM') = '08' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '08' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as August_Amount, 
-        nvl(case when to_char(Bl_date,'MM') = '09' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '09' then (mps_qty / jumlah)  + qty_in_transit end as September_Qty,
-        (nvl(case when to_char(Bl_date,'MM') = '09' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '09' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as September_Amount, 
-        nvl(case when to_char(Bl_date,'MM') = '10' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '10' then (mps_qty / jumlah)  + qty_in_transit end as October_Qty,
-        (nvl(case when to_char(Bl_date,'MM') = '10' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '10' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as OctoberAmount, 
-        nvl(case when to_char(Bl_date,'MM') = '11' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '11' then (mps_qty / jumlah)  + qty_in_transit end as November_Qty,
-        (nvl(case when to_char(Bl_date,'MM') = '11' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '11' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as November_Amount, 
-        nvl(case when to_char(Bl_date,'MM') = '12' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '12' then (mps_qty / jumlah) + qty_in_transit end as December_Qty,
-        (nvl(case when to_char(Bl_date,'MM') = '12' then nvl(actual_sales,0) end,0)  + 
-        case when to_char(cr_Date,'MM') = '12' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as December_Amount
+        isnull(case when format(Bl_date,'MM') = '03' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '03' then (mps_qty / jumlah)  + qty_in_transit end as March_Qty,
+       (isnull(case when format(Bl_date,'MM') = '03' then isnull(actual_sales,0) end,0)  +  
+        case when format(cr_Date,'MM') = '03' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as March_Amount, 
+        isnull(case when format(Bl_date,'MM') = '04' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '04' then (mps_qty / jumlah)  + qty_in_transit end as April_Qty,
+     (isnull(case when format(Bl_date,'MM') = '04' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '04' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as April_Amount, 
+       isnull( case when format(Bl_date,'MM') = '05' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '05' then (mps_qty / jumlah)  + qty_in_transit end as May_Qty,
+        (isnull(case when format(Bl_date,'MM') = '05' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '05' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as May_Amount, 
+        isnull(case when format(Bl_date,'MM') = '06' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '06' then (mps_qty / jumlah)  + qty_in_transit end as June_Qty,
+     (isnull(case when format(Bl_date,'MM') = '06' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '06' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as June_Amount, 
+        isnull(case when format(Bl_date,'MM') = '07' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '07' then (mps_qty / jumlah)  + qty_in_transit end as July_Qty,
+        (isnull(case when format(Bl_date,'MM') = '07' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '07' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as July_Amount, 
+        isnull(case when format(Bl_date,'MM') = '08' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '08' then (mps_qty / jumlah)  + qty_in_transit end as August_Qty,
+        (isnull(case when format(Bl_date,'MM') = '08' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '08' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as August_Amount, 
+        isnull(case when format(Bl_date,'MM') = '09' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '09' then (mps_qty / jumlah)  + qty_in_transit end as September_Qty,
+        (isnull(case when format(Bl_date,'MM') = '09' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '09' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as September_Amount, 
+        isnull(case when format(Bl_date,'MM') = '10' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '10' then (mps_qty / jumlah)  + qty_in_transit end as October_Qty,
+        (isnull(case when format(Bl_date,'MM') = '10' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '10' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as OctoberAmount, 
+        isnull(case when format(Bl_date,'MM') = '11' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '11' then (mps_qty / jumlah)  + qty_in_transit end as November_Qty,
+        (isnull(case when format(Bl_date,'MM') = '11' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '11' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as November_Amount, 
+        isnull(case when format(Bl_date,'MM') = '12' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '12' then (mps_qty / jumlah) + qty_in_transit end as December_Qty,
+        (isnull(case when format(Bl_date,'MM') = '12' then isnull(actual_sales,0) end,0)  + 
+        case when format(cr_Date,'MM') = '12' then (mps_qty / jumlah)  + qty_in_transit end) * standard_price as December_Amount
         
 from zvw_forecast_2 
 inner join (
-select count(work_order|| mps_header.po_no||mps_header.po_line_no) as jumlah,work_order|| mps_header.po_no||mps_header.po_line_no as work_order, to_char(mps_date,'MM') mps_Date,sum(mps_qty) mps_qty from  
+select count(work_order + mps_header.po_no + mps_header.po_line_no) as jumlah,work_order + mps_header.po_no + mps_header.po_line_no as work_order, format(mps_date,'MM') mps_Date,sum(mps_qty) mps_qty from  
       mps_header
       inner join (select sum(mps_qty) as mps_qty, mps_date, po_no,po_line_no from mps_details group by po_no,po_line_no,mps_date )ss
       on mps_header.po_no = ss.po_no and mps_header.po_line_no = ss.po_line_no
-group by mps_header.work_order|| mps_header.po_no||mps_header.po_line_no,to_char(mps_date,'MM')--,mps_qty
-)b on b.work_order =  zvw_forecast_2.work_order || zvw_forecast_2.po_no ||zvw_forecast_2.po_line_no
+group by mps_header.work_order +  mps_header.po_no + mps_header.po_line_no,format(mps_date,'MM')--,mps_qty
+)b on b.work_order =  zvw_forecast_2.work_order  +  zvw_forecast_2.po_no  + zvw_forecast_2.po_line_no
 left outer join (select item_no, standard_price from item )d
 on zvw_forecast_2.item_no = d.item_no;
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FORECAST_4" ("PACKAGING_TYPE", "WORK_ORDER", "PO_NO", "ITEM_NO", "BRAND", "COMPANY", "CUSTOMER_GROUP", "BATERY_TYPE", "CELL_GRADE", "QTY_ORDER", "CR_DATE", "U_PRICE", "STANDARD_PRICE", "TERM", "CURR", "SALES_AMOUNT", "QTY_GUDANG", "QTY_IN_TRANSIT", "SALES_DATE", "JANUARY_QTY", "JANUARY_AMOUNT", "FEBRUARY_QTY", "FEBRUARY_AMOUNT", "MARCH_QTY", "MARCH_AMOUNT", "APRIL_QTY", "APRIL_AMOUNT", "MAY_QTY", "MAY_AMOUNT", "JUNE_QTY", "JUNE_AMOUNT", "JULY_QTY", "JULY_AMOUNT", "AUGUST_QTY", "AUGUST_AMOUNT", "SEPTEMBER_QTY", "SEPTEMBER_AMOUNT", "OCTOBER_QTY", "OCTOBERAMOUNT", "NOVEMBER_QTY", "NOVEMBER_AMOUNT", "DECEMBER_QTY", "DECEMBER_AMOUNT") AS 
+create view ZVW_FORECAST_4 as
   select packaging_type,
        work_order,
        po_no,
@@ -2160,7 +2176,7 @@ on zvw_forecast_2.item_no = d.item_no;
        Sales_amount,
        Qty_Gudang,
        Qty_In_Transit,
-       nvl(sales_date,forecast_date) as sales_date,
+       isnull(sales_date,forecast_date) as sales_date,
        sum(january_qty)january_qty ,
        sum(january_amount)january_amount,
        sum(february_qty)february_qty,
@@ -2205,30 +2221,30 @@ packaging_type,
        Sales_amount,
        Qty_Gudang,
        Qty_In_Transit,
-       nvl(sales_date,forecast_date);
+       isnull(sales_date,forecast_date);
  
 
-  CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_FORECAST_MONITORING" ("REMARK", "INV_DATE", "BL_DATE", "U_PRICE", "CUSTOMER_PO_NO", "LINE_NO", "ITEM_NO", "DESCRIPTION", "GRADE_CODE", "TYPE", "INV_NO", "INV_LINE_NO", "WO", "ORDER_QTY", "ORDER_QTY_AMOUNT", "EX_FACTORY_QTY", "EX_FACTORY_AMOUNT", "QTY_BL", "SALES_AMOUNT") AS 
+create view ZVW_FORECAST_MONITORING as
   select it.item_remark1 as  Remark,
        inv_Date,
-       BL_Date,s.U_price * nvl(doh.ex_rate, r.ex_rate) as U_price
+       BL_Date,s.U_price * isnull(doh.ex_rate, r.ex_rate) as U_price
        ,r.customer_po_no,s.line_no,s.item_no,it.description, GRADE_CODE,
-case when trim(it.class_code) like '1112%' then 'LR6' else case when it.class_code like '1113%' Then 'LR03' else case when it.class_Code = '111111' then 'LR1' END  END END as Type,
+case when ltrim(rtrim(it.class_code)) like '1112%' then 'LR6' else case when it.class_code like '1113%' Then 'LR03' else case when it.class_Code = '111111' then 'LR1' END  END END as Type,
 ii.inv_no, 
 inv_line_no,
-CUSTOMER_PO_NO || '-'|| case when trim(it.class_code) like '1112%' then 'LR6' else case when it.class_code like '1113%' Then 'LR03' else case when it.class_Code = '111111' then 'LR1' END  END END ||GRADE_CODE||'-'||LINE_NO  as WO,
+CUSTOMER_PO_NO  +  '-' +  case when ltrim(rtrim(it.class_code)) like '1112%' then 'LR6' else case when it.class_code like '1113%' Then 'LR03' else case when it.class_Code = '111111' then 'LR1' END  END END  + GRADE_CODE + '-' + LINE_NO  as WO,
 s.qty as Order_Qty,
-s.qty * s.u_price * nvl(doh.ex_rate, r.ex_rate) as Order_Qty_Amount,
-nvl(ii.qty,0) as ex_Factory_QTY,
-(nvl(ii.qty,0) * s.u_price * nvl(doh.ex_rate, r.ex_rate))  as ex_Factory_Amount,
-case when doh.BL_date is null then 0 else nvl(ii.qty,0) end  as Qty_Bl,
-case when doh.BL_date is null then 0 else nvl(ii.qty,0) * s.u_price * nvl(doh.ex_rate, r.ex_rate) end  as sales_Amount
+s.qty * s.u_price * isnull(doh.ex_rate, r.ex_rate) as Order_Qty_Amount,
+isnull(ii.qty,0) as ex_Factory_QTY,
+(isnull(ii.qty,0) * s.u_price * isnull(doh.ex_rate, r.ex_rate))  as ex_Factory_Amount,
+case when doh.BL_date is null then 0 else isnull(ii.qty,0) end  as Qty_Bl,
+case when doh.BL_date is null then 0 else isnull(ii.qty,0) * s.u_price * isnull(doh.ex_rate, r.ex_rate) end  as sales_Amount
 from so_header r
 inner join so_details s
 on s.so_no = r.so_no
 inner join item it
 on it.item_no = s.item_no
-left outer join (select nvl(sum(qty),0) as qty, so_no,so_line_no, indication.inv_no,inv_line_no from indication where commit_date is not null group by so_no,so_line_no,inv_no,inv_line_no )  ii 
+left outer join (select isnull(sum(qty),0) as qty, so_no,so_line_no, indication.inv_no,inv_line_no from indication where commit_date is not null group by so_no,so_line_no,inv_no,inv_line_no )  ii 
 on s.so_no = ii.so_no and s.line_no = ii.so_line_no
 left outer join (select inv_no,BL_date,inv_Date,ex_rate from do_header   ) doh
 on ii.inv_no = doh.inv_no
@@ -2237,7 +2253,6 @@ select po_no
 from mps_header
 where status = 'FM')
 
-order by inv_date,bl_date;
  
 
   CREATE OR REPLACE FORCE VIEW "PORDER"."ZVW_INVENTORY_ANALYSIST" ("ITEM1", "LASTMONTH", "LASTMONTHAMOUNT", "TANGGAL1", "TANGGAL2", "TANGGAL3", "TANGGAL4", "TANGGAL5", "TANGGAL6", "TANGGAL7", "TANGGAL8", "TANGGAL9", "TANGGAL0", "TANGGAL11", "TANGGAL12", "TANGGAL13", "TANGGAL14", "TANGGAL15", "TANGGAL16", "TANGGAL17", "TANGGAL18", "TANGGAL19", "TANGGAL20", "TANGGAL21", "TANGGAL22", "TANGGAL23", "TANGGAL24", "TANGGAL25", "TANGGAL26", "TANGGAL27", "TANGGAL28", "TANGGAL29", "TANGGAL30", "TANGGAL31", "THISMONTH", "THISMONTHAMOUNT") AS 
